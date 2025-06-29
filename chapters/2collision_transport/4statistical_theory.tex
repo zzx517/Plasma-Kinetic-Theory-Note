@@ -1,0 +1,49 @@
+
+\chapter{等离子体的统计理论——碰撞项的统计描述}
+
+\section{6N维相空间中的概率分布函数}
+
+\subsection{\texorpdfstring{$\Gamma$}{Gamma} 空间}
+
+由 $N$ 个全同粒子组成的体系，其状态可以由 $3N$ 个位置 $\vector{r}_i$ 和 $3N$ 个速度 $\vector{v}_i$ 确定。
+这 $6N$ 维相空间被称为 $\Gamma$ 空间。$\Gamma$ 空间中每一个点表示这个系统的一个状态。此系统在 $\Gamma$ 空间中的轨迹满足力学规律：
+\begin{equation}
+\odv{\vector{r}_i}{t} = \vector{v}_i,
+\quad \odv{\vector{v}_i}{t} = \frac{\vector{F}_i}{m},
+\quad i = 1, 2, \cdots, N
+\end{equation}
+其中，$\vector{F}_i$ 包括了粒子 $i$ 受到的所有力，包括系统内的相互作用和外力作用。
+
+\subsection{物理量的宏观测量}
+
+\subsection{相点密度和分布函数}
+
+\section{刘维方程和BBGKY方程链}
+
+\subsection{刘维方程的建立}
+
+考虑 $N$ 个全同粒子组成的体系在 $6N$ 维相空间中的概率分布函数：
+$f_N(\{\vector{r}_i, \vector{v}_i\})$，则有刘维方程：
+\begin{equation}
+\pdv{f_N}{t} + \sum_{i=1}^N \ab(
+    \vector{v}_i \cdot \pdv{f_N}{\vector{r}_i}
+    + \frac{\vector{F}_i}{m} \cdot \pdv{f_N}{\vector{v}_i}
+) = 0
+\end{equation}
+
+用概率分布函数来描述体系有以下优势：
+\begin{enumerate}
+    \item 实际上无法知道每个粒子的初始状态，用概率分布相当于对所有可能的初始条件进行系综平均
+\end{enumerate}
+
+\subsection{约化分布函数}
+
+\subsection{BBGKY方程链}
+
+\section{单粒子和双粒子分布函数的动理学方程}
+
+\section{热平衡下的双粒子关联函数}
+
+物理意义：在热平衡的等离子体中，其他粒子对这两个粒子之间关联的影响，相当于在每个粒子周围包上了一层异种电荷的云，从而屏蔽了普通的库伦势，而使它变成了屏蔽库伦势。
+
+\section{无磁场时的朗道方程}

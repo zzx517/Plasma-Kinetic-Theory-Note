@@ -1,0 +1,109 @@
+% 使用 xeCJK 包支持中文字体处理（需配合 XeLaTeX 引擎）
+\usepackage{xeCJK}
+
+% 字体设置
+\usepackage{fontspec}
+
+% 中文相关
+\usepackage[UTF8,scheme=chinese]{ctex}
+
+% 设置页面布局
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+
+% 设置日期的格式
+\usepackage[style=iso]{datetime2}
+
+% 提供增强的枚举环境（如自定义编号格式）
+\usepackage{enumerate}
+
+% 扩展表格功能（如列格式定义）
+\usepackage{array}
+
+% AMS 数学定理环境支持（定理、引理等）
+\usepackage{amsthm}
+
+% AMS 核心数学支持（数学公式、符号）
+\usepackage{amsmath}
+
+% 数学工具扩展（矩阵对齐、箭头注释等）
+\usepackage{mathtools}
+
+% 字体加粗
+\usepackage{bm}
+
+% 矩阵拓展
+\usepackage{nicematrix}
+\NiceMatrixOptions{cell-space-limits = 1pt}
+
+% 花体数学符号支持
+\usepackage{mathrsfs}
+
+% 物理常用符号补充
+\usepackage{physics2}
+\usephysicsmodule{ab}
+\usephysicsmodule{ab.legacy}
+\usephysicsmodule{op.legacy}
+
+% 微分符号
+\usepackage{fixdif}
+\usepackage{derivative}
+
+% 国际单位制高级支持（SIunits）
+\usepackage{siunitx}
+\sisetup{
+	separate-uncertainty = true,  % 分离不确定度（如 1.23 ± 0.45）
+	inter-unit-product = \ensuremath{{}\cdot{}}  % 单位间使用中点连接符
+}
+
+% 图形处理支持
+\usepackage{graphicx}
+\graphicspath{{figures/}}  % 设置图片搜索路径为 figures 子目录
+
+% 子图支持（如 subfigure 环境）
+\usepackage{subcaption}
+
+% 出版级表格线控制（三线表等）
+\usepackage{booktabs}
+
+% 自动调整列宽的表格环境
+\usepackage{tabularx}
+
+% 支持跨页长表格
+\usepackage{longtable}
+
+% 表格跨行支持
+\usepackage{multirow}
+
+% 矢量绘图支持
+\usepackage{tikz}
+
+% 电路图绘制扩展
+\usepackage{circuitikz}
+\ctikzset{logic ports=ieee}  % 设置逻辑门符号标准为 IEEE 风格
+
+% 算法伪代码环境（带编号和标线）
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+% 代码排版支持（高亮、边框等）
+\usepackage{listings}
+
+% 高级参考文献引用（支持作者-年份格式）
+\usepackage[sort]{natbib}
+
+% 定义 LaTeX 命令显示宏
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}  % 显示控制序列（如 \section）
+\DeclareRobustCommand\env{\texttt}                % 显示环境名称（如 document）
+\DeclareRobustCommand\pkg{\textsf}                % 显示包名（无衬线字体）
+\DeclareRobustCommand\file{\nolinkurl}            % 显示文件名（等宽字体）
+
+% 超链接支持（目录/引用/书签）
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered  = true,   % 书签显示章节编号
+	bookmarksopen      = true,   % 展开书签
+	bookmarksopenlevel = 1,      % 展开层级深度
+	linktoc            = all,    % 目录项添加超链接
+	unicode            = true,   % 支持 Unicode
+	psdextra           = true,   % 增强 PostScript 支持
+	hidelinks                    % 隐藏超链接颜色/边框
+}

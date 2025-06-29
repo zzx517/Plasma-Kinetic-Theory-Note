@@ -1,0 +1,108 @@
+
+\chapter{碰撞和输运概论}
+
+碰撞：粒子相互靠近的瞬间发生的强烈的相互作用。
+\begin{description}
+    \item[中性粒子] 短程相互作用，力程在原子尺度；
+    \item[带点粒子] 长程相互作用，力程为德拜长度。
+\end{description}
+
+对于等离子体而言，力程小于德拜长度的相互作用考虑为碰撞，力程大于德拜长度的相互作用考虑为集体运动。
+
+\section{自扩散与集体输运}
+
+\begin{description}
+    \item[自扩散] 又称试探粒子近似或弛豫过程。它关注一群试探粒子与等离子体背景粒子间碰撞后，试探粒子受到的影响。它既不考虑试探粒子之间的碰撞，也不考虑背景粒子受到的反作用。
+    \item[集体输运] 考虑多群密度相近的粒子间的碰撞，包括同类粒子之间的碰撞。
+\end{description}
+
+带碰撞项的动理学方程：
+\begin{equation}
+\pdv{f_\alpha}{t}
++ \vector{v} \cdot \pdv{f_\alpha}{\vector{r}}
++ \frac{q_\alpha}{m_\alpha} \ab(
+    \vector{E} + \vector{v} \times \vector{B}
+) \cdot \pdv{f_\alpha}{\vector{v}}
+= \ab(\pdv{f_\alpha}{t})_c
+\end{equation}
+
+二体碰撞形式：
+\begin{equation}
+\ab(\pdv{f_\alpha}{t})_c = \sum_\beta C_{\alpha\beta} \ab(f_\alpha, f_\beta)
+\end{equation}
+
+对所有碰撞形式：
+\begin{subequations}\begin{align}
+\int C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
+\int m_\alpha\vector{v} C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
+\int \frac{1}{2} m_\alpha v^2 C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
+\int m_\alpha\vector{v} C_{\alpha\beta} \d^3\vector{v}
++ \int m_\beta\vector{v} C_{\beta\alpha} \d^3\vector{v}&= 0
+\end{align}\end{subequations}
+对于弹性碰撞
+\begin{subequations}\begin{align}
+\int C_{\alpha\beta} \d^3\vector{v} &= 0\\
+\int \frac{1}{2} m_\alpha v^2 C_{\alpha\beta} \d^3\vector{v}
++ \int \frac{1}{2} m_\beta v^2 C_{\beta\alpha} \d^3\vector{v} &= 0
+\end{align}\end{subequations}
+定义
+\begin{equation}
+\vector{R}_{\alpha\beta} = \int m_\alpha\vector{v} C_{\alpha\beta} \d^3\vector{v}
+\end{equation}
+
+\subsection{自扩散的描述}
+
+试探粒子：
+\begin{equation}
+\hat{f}_\alpha(t=0,\vector{v})=\delta(\vector{v}-\vector{u}_\alpha)
+\end{equation}
+
+一阶矩，平行于入射方向，动量慢化
+\begin{equation}
+\odv{p_\parallel}{t} = - \frac{p_\parallel}{\tau_s}
+\end{equation}
+
+二阶矩，平行于入射方向，能量衰减
+\begin{equation}
+\odv{E_\parallel}{t} = - \frac{E_\parallel}{\tau_\parallel}
+\end{equation}
+
+二阶矩，垂直于入射方向，能量弥散
+\begin{equation}
+\odv{E_\perp}{t} = \frac{E_\perp}{\tau_\perp}
+\end{equation}
+
+\subsection{集体输运的描述}
+
+流体方程组
+
+摩擦力
+\begin{equation}
+\vector{F}_{r,\alpha} = \int m_\alpha \vector{v} \ab(\pdv{f_\alpha}{t})_c \d^3\vector{v}
+\end{equation}
+
+碰撞交换的热量
+\begin{equation}
+W_{c,\alpha} = \int \frac{1}{2} m_\alpha \vector{w}_\alpha^2 \left( \pDeriv{f_\alpha}{t} \right)_c \, \d^3 \vector{v}
+\end{equation}
+
+\paragraph{扩散过程}
+通量流
+\begin{equation}
+\vector{\Gamma}_\alpha = - D_\alpha \grad{n_\alpha}
+\end{equation}
+扩散系数
+
+\paragraph{粘滞过程}
+动量流
+\begin{equation}
+\vector{\Pi}_\alpha = ...
+\end{equation}
+剪切粘滞系数、体粘滞系数
+
+\paragraph{热传导过程}
+热流
+\begin{equation}
+\vector{q}_\alpha = - \kappa_\alpha \grad{T_\alpha}
+\end{equation}
+热传导系数

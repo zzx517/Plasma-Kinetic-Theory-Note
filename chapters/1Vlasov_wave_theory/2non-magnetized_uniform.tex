@@ -1,0 +1,714 @@
+
+\chapter{无外场、空间均匀的线性波动问题}
+
+\section{静电波解 \label{section:321}}
+
+$\vector{B}_1=0,\vector{E}_1=\grad{\phi_1} $
+
+线性化弗拉索夫方程
+\begin{equation}
+\pdv{f_{\alpha,1}}{t} + \vector{v} \cdot \pdv{f_{\alpha,1}}{\vector{r}}
+- \frac{q_\alpha}{m_\alpha} \pdv{\phi_1}{\vector{r}} \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+= 0
+\end{equation}
+
+线性化泊松方程
+\begin{equation}
+\laplace{\phi_1} = - \frac{1}{\varepsilon_0} \sum_\alpha q_\alpha \int f_{\alpha,1} \d^3 \vector{v}
+\end{equation}
+
+傅里叶变换
+\begin{subequations}\begin{gather}
+-\im\omega f_{\alpha,k} - \left.f_{\alpha,k}\right|_{t=0} + \im \vector{k} \cdot \vector{v} f_{\alpha,k}
+- \im \frac{q_\alpha}{m_\alpha} \phi_k \vector{k} \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+= 0 \\
+k^2 \phi_k = \frac{1}{\varepsilon_0} \sum_\alpha q_\alpha \int f_{\alpha,k} \d^3 \vector{v}
+\end{gather}\end{subequations}
+
+化简得
+\begin{subequations}\begin{align}
+f_{\alpha,k} &= - \frac{q_\alpha}{m_\alpha} \frac{\phi_k}{\omega - \vector{k} \cdot \vector{v}} \vector{k} \cdot \pdv{f_{\alpha,0}}{\vector{v}}
++ \im \frac{f_{\alpha,k}(0)}{\omega - \vector{k} \cdot \vector{v}} \label{eq:321temp1} \\
+\phi_k &= \frac{1}{\varepsilon_0 k^2} \sum_\alpha q_\alpha \int f_{\alpha,k} \d^3 \vector{v} \label{eq:321temp2}
+\end{align}\end{subequations}
+
+将 \ref{eq:321temp1} 代入 \ref{eq:321temp2} 得：
+\begin{subequations}\begin{align}
+\varepsilon(\omega, \vector{k}) &= 1 + \sum_\alpha \chi_\alpha(\omega, \vector{k}) \label{eq:321varepsilon}\\
+\chi_\alpha(\omega, \vector{k}) &= \frac{\omega_{p,\alpha}^2}{k^2}
+\int \frac{\vector{k} \cdot \pdv{}{\vector{v}} \hat{f}_{\alpha,0}}{\omega - \vector{k} \cdot \vector{v}} \d^3 \vector{v} \label{eq:321chi}\\
+\phi_k &= \frac{\im}{k^2 \varepsilon_0 \varepsilon(\omega, \vector{k})} \sum_\alpha q_\alpha \int \frac{f_{\alpha,k}(0)}{\omega - \vector{k} \cdot \vector{v}} \d^3 \vector{v}
+\end{align}\end{subequations}
+其中，$\varepsilon$ 为相对介电函数，$\chi_\alpha$ 为极化率。
+
+对于本征值问题，不考虑时间起点，即 $f_{\alpha,k}(0) = 0$，为了使电场扰动不为零，则必须有
+\begin{equation}
+\varepsilon(\omega, \vector{k}) = 0
+\end{equation}
+这样就可以得出色散关系。
+
+对于初值问题，则必须考虑时间起点 $f_{\alpha,k}(0)$ 的影响。
+
+\subsection{束等离子体的本征模}
+
+粒子束：
+\begin{equation}
+f_{\alpha,0} = n_{\alpha,0} \delta(\vector{v} - \vector{u}_\alpha)
+\end{equation}
+极化率
+\begin{equation}\begin{aligned}
+\chi_\alpha(\omega, \vector{k}) &= \frac{\omega_{p,\alpha}^2}{k^2} \int \left[
+\pdv{}{\vector{v}} \cdot \left( \frac{\vector{k} \hat{f}_{\alpha,0}}{\omega - \vector{k} \cdot \vector{v}} \right)
+- \hat{f}_{\alpha,0} \vector{k} \cdot \pdv{}{\vector{v}}\left( \frac{1}{\omega - \vector{k} \cdot \vector{v}} \right)
+\right] \d^3 \vector{v} \\
+&= - \frac{\omega_{p,\alpha}^2}{k^2} \int
+\hat{f}_{\alpha,0} \vector{k} \cdot \frac{\vector{k} \cdot \vector{I}}{\left( \omega - \vector{k} \cdot \vector{v} \right)^2}
+\d^3 \vector{v} \\
+&= - \frac{\omega_{p,\alpha}^2}{\left( \omega - \vector{k} \cdot \vector{u}_\alpha \right)^2}
+\end{aligned}\end{equation}
+相对介电函数
+\begin{equation}
+\varepsilon = 1 - \sum_\alpha \frac{\omega_{p,\alpha}^2}{\left( \omega - \vector{k} \cdot \vector{u}_\alpha \right)^2}
+\end{equation}
+
+假设离子静止 $\vector{u}_i = \vector{0}$，电子流速 $\vector{u}_e \parallel \vector{k}$，则色散关系为
+\begin{equation}
+\frac{\omega_{p,e}^2}{\left( \omega - k u_e \right)^2} + \frac{\omega_{p,i}^2}{\omega^2} = 1
+\end{equation}
+
+\subsubsection{忽略离子响应}
+
+在忽略离子响应（$\omega_{p,e} \gg \omega_{p,i}$）的情况下，色散关系可以简化为
+\begin{equation}
+\omega = k u_e \pm \omega_{p,e}
+\end{equation}
+得到快/慢波模。
+
+\paragraph{波能}
+\begin{equation}
+\pdv{\left(\omega \varepsilon\right)}{\omega}
+= \omega \pdv{\varepsilon}{\omega}
+= \pm \frac{2 \omega}{\omega_{p,e}}
+\end{equation}
+则快波为正能波，慢波为负能波。
+
+\paragraph{扰动密度}
+\begin{equation}
+n_{e,k} = \int f_{e,k} \d^3\vector{v}
+= - \frac{\varepsilon_0}{e} k \phi_k
+\end{equation}
+快/慢波模同相。
+
+\paragraph{平均扰动速度}
+考虑粒子流的扰动
+\begin{equation}
+\vector{\Gamma}_{\alpha,1} = \int \vector{v} f_{\alpha,1} \d^3\vector{v}
+= n_{\alpha,0} \vector{u}_{\alpha,1} + n_{\alpha,1} \vector{u}_{\alpha,0}
+\end{equation}
+则平均扰动速度为
+\begin{equation}\begin{aligned}
+u_{e,k} &= \frac{n_{e,k}}{n_{e,0}} \left(\frac{\omega}{k} - u_e \right) \\
+&= \mp \sqrt{\frac{\varepsilon_0}{m_e n_{e,0}}} k \phi_k
+\end{aligned}\end{equation}
+快/慢波模反相。
+
+\paragraph{平均能量密度}
+
+\subsection{束等离子体波模分析}
+
+介电函数
+\begin{equation}
+\varepsilon = 1 - \sum_\alpha \frac{\omega_{p,\alpha}^2}{\left( \omega - \vector{k} \cdot \vector{u}_\alpha \right)^2}
+\end{equation}
+不显含虚部，称为 \textbf{反应型}，不稳定性/阻尼来自于波-波相互作用。与之对应的，介电函数显含虚部的称为 \textbf{耗散型}，其不稳定性/阻尼的来源还包括波-粒子相互作用。
+
+\paragraph{典型的束-等离子体系统}
+离子不响应，本地冷电子密度 $n_{e,0}$ 远大于电子束密度 $n_{b,0}$。色散关系：
+\begin{equation}
+\frac{\omega_{p,b}^2}{\left( \omega - k u_b \right)^2} + \frac{\omega_{p,e}^2}{\omega^2} = 1
+\end{equation}
+
+极限情况：
+\begin{itemize}
+    \item 当不存在电子束时，波模退化为简单的电子等离子体波：$\omega = \omega_{p,e}$。
+    \item 当不存在本底电子时，波模退化为上节所述的快/慢波：$\omega = k u_b \pm \omega_{p,b}$。
+    \item 两者都存在时，会产生波模耦合：
+\begin{equation}
+\left(\omega - \omega_1\right) \left(\omega - \omega_1\right) = \epsilon
+\end{equation}
+其中，$\epsilon$ 为耦合系数。若 $\epsilon < - (\omega_1 - \omega_2)^2 / 4$，则 $\omega_i > 0$，存在不稳定性。当共振（$\omega_1 = \omega_2$）时，$\omega_i = \sqrt{-4\epsilon}$ 最大。
+\end{itemize}
+
+渐进行为：
+\begin{enumerate}
+    \item 当 $\omega \gg k u_b$ 时，色散关系
+\begin{equation}\begin{gathered}
+\frac{\omega_{p,b}^2}{\omega^2} + \frac{\omega_{p,e}^2}{\omega^2} = 1 \\
+\omega^2 = \omega_{p,e}^2 + \omega_{p,b}^2 \approx \omega_{p,e}^2
+\end{gathered}\end{equation}
+    \item 当 $\omega \ll k u_b$ 时，色散关系
+\begin{equation}\begin{gathered}
+\frac{\omega_{p,b}^2}{k^2 u_b^2} + \frac{\omega_{p,e}^2}{\omega^2} = 1 \\
+\omega^2 = \omega_{p,e}^2 \left/\left(1 - \frac{\omega_{p,b}^2}{k^2 u_b^2} \right)\right.
+\end{gathered}\end{equation}
+    \item 当 $\omega \sim k u_b \gg \omega_{p,e}$ 时，色散关系
+\begin{equation}\begin{gathered}
+\frac{\omega_{p,b}^2}{\left(\omega - k u_b\right)^2} = 1 \\
+\omega = k u_b \pm \omega_{p,b}
+\end{gathered}\end{equation}
+    \item 当 $\omega \sim k u_b \ll \omega_{p,e}$ 时，色散关系
+\begin{equation}\begin{gathered}
+\frac{\omega_{p,b}^2}{\left(\omega - k u_b\right)^2} + \frac{\omega_{p,e}^2}{\omega^2} = 0 \\
+\omega = k u_b \left/\left(1 \mp \im \frac{\omega_{p,b}}{\omega_{p,e}} \right)\right.
+\approx k u_b \left(1 \pm \im \frac{\omega_{p,b}}{\omega_{p,e}} \right)
+\end{gathered}\end{equation}
+出现不稳定性：$\dfrac{\omega_i}{\omega_r} = \dfrac{\omega_{p,b}}{\omega_{p,e}} \ll 1$。
+    \item 当 $\omega \sim k u_b \sim \omega_{p,e}$ 时，数值求解。
+\end{enumerate}
+
+\section{耗散型本征模}
+
+介电函数和色散方程具有如下形式：
+\begin{subequations}\begin{align}
+\varepsilon &= \varepsilon_\re + \im \varepsilon_\im, \quad \varepsilon_\im \neq 0 \\
+\omega &= \omega_\re + \im \omega_\im, \quad \omega_\im \neq 0
+\end{align}\end{subequations}
+
+\subsection{
+    弱耗散
+    \texorpdfstring{（$\varepsilon_\im \ll \varepsilon_\re$、$\omega_\im \ll \omega_\re$）}{}
+    情况下的色散方程
+}
+
+对介电函数进行 Taylor 展开得
+\begin{equation}\begin{aligned}
+\varepsilon(\omega, \vector{k})
+&\approx \varepsilon(\omega_r, \vector{k})
++ \im \omega_i \pdv{\varepsilon}{\omega}(\omega_r, \vector{k}) \\
+&\approx \varepsilon_r(\omega_r, \vector{k})
++ \im \left[ \varepsilon_i(\omega_r, \vector{k})
++ \omega_i \pdv{\varepsilon_r}{\omega}(\omega_r, \vector{k}) \right]
+\end{aligned}\end{equation}
+
+由 $\varepsilon(\omega, \vector{k}) = 0$，得
+\begin{subequations}\begin{align}
+\omega_r &= \omega_r(\vector{k}) \\
+\omega_i &= - \left.\left(
+    \varepsilon_i \left/ \pdv{\varepsilon_r}{\omega} \right.
+\right)\right|_{\omega=\omega_r}
+\end{align}\end{subequations}
+
+\subsection{耗散项 \texorpdfstring{$\varepsilon_i$}{} 的来源}
+
+考虑 \ref{section:321} 节得到的介电函数：
+\begin{subequations}\begin{align}
+\varepsilon(\omega, \vector{k}) &= 1 + \sum_\alpha \chi_\alpha(\omega, \vector{k}) \tag{\ref{eq:321varepsilon}}\\
+\chi_\alpha(\omega, \vector{k})
+&= \frac{\omega_{p,\alpha}^2}{k^2}
+\int \frac{\vector{k} \cdot \pdv{}{\vector{v}} \hat{f}_{\alpha,0}}{\omega - \vector{k} \cdot \vector{v}} \d^3 \vector{v} \tag{\ref{eq:321chi}}
+\end{align}\end{subequations}
+其中，被积函数在 $\vector{k} \cdot \vector{v} = \omega$ 奇异。
+
+将速度分解为垂直波矢方向和平行波矢方向，并利用复平面的路径积分得到
+\begin{equation}\begin{aligned}
+\chi_\alpha(\omega, \vector{k})
+&= \frac{\omega_{p,\alpha}^2}{k^2} \int
+    \frac{1}{\omega / k - v_\parallel}
+    \ab( \pdv{}{v_\parallel}
+        \int \hat{f}_{\alpha,0} \d^2 \vector{v}_\perp
+    )
+\d v_\parallel \\
+&= \frac{\omega_{p,\alpha}^2}{k^2} \PV\int
+    \frac{\pdv{}{v_\parallel} \hat{f}_{\alpha,0}}{\omega / k - v_\parallel}
+\d^3 \vector{v}
+- \im \pi \frac{\omega_{p,\alpha}^2}{k^2}
+    \eval{\ab(\pdv{}{v_\parallel}
+        \int \hat{f}_{\alpha,0} \d^2 \vector{v}_\perp
+    )}_{v_\parallel = \frac{\omega}{k}}
+\end{aligned}\end{equation}
+则
+\begin{subequations}\begin{align}
+\varepsilon_r &= 1 - \sum_\alpha \frac{\omega_{p,\alpha}^2}{k^2} \PV \int
+    \frac{\pdv{}{v_\parallel} \hat{f}_{\alpha,0}}{\omega / k - v_\parallel}
+\d^3 \vector{v} \\
+\varepsilon_i &= - \pi \sum_\alpha \frac{\omega_{p,\alpha}^2}{k^2}
+    \eval{\ab(\pdv{}{v_\parallel}
+        \int \hat{f}_{\alpha,0} \d^2 \vector{v}_\perp
+    )}_{v_\parallel = \frac{\omega}{k}}
+\end{align}\end{subequations}
+
+相关概念
+\begin{description}
+    \item[共振条件] $\vector{k} \cdot \vector{v} = \omega$；
+    \item[共振粒子] 速度在 $\vector{k} \cdot \vector{v} \approx \omega$ 附近的粒子，与波的相互作用时间长，影响较大；
+    \item[非共振粒子] 与波的相互作用时间短，影响较小，但仍有影响；
+\end{description}
+
+\subsection{麦克斯韦（Maxwell）分布下的等离子体色散方程}
+
+麦克斯韦（Maxwell）分布：
+\begin{equation} \tag{\ref{eq:Maxwell_distribution}} \begin{aligned}
+f_{\text{M}, \alpha}
+&= n_{\alpha, 0} \left(\frac{m_\alpha}{2 \pi T_\alpha}\right)^{3/2}
+\exp{\left[- \frac{m_\alpha}{2 T_\alpha} (\vector{v} - \vector{u}_\alpha)^2\right]} \\
+&= \frac{n_{\alpha, 0}}{\sqrt{\pi^3} v_{t, \alpha}^3}
+\exp{\left[- \frac{(\vector{v} - \vector{u}_\alpha)^2}{v_{t, \alpha}^2}\right]}
+\end{aligned}\end{equation}
+则极化率为：
+\begin{equation}
+\chi_\alpha = \frac{1 + \xi_\alpha Z(\xi_\alpha)}{k^2 \lambda_{D,\alpha}^2},
+\quad \xi_\alpha = \frac{\omega}{k v_{t,\alpha}}
+\end{equation}
+其中，$\lambda_{D, \alpha} = \sqrt{\dfrac{\varepsilon_0 T_\alpha}{q_\alpha^2 n_{\alpha, 0}}}$ 为德拜长度。
+\begin{equation}\begin{aligned}
+Z(x) &= \frac{1}{\sqrt{\pi}} \int_{-\infty}^{+\infty} \frac{\eu^{- y^2}}{y - x} \d y \\
+&= \frac{1}{\sqrt{\pi}} \PV \int_{-\infty}^{+\infty} \frac{\eu^{- y^2}}{y - x} \d y
++ \im \sqrt{\pi} \eu^{-x^2}
+\end{aligned}\end{equation}
+为等离子体色散函数。
+
+在冷等离子体（$\xi_\alpha \gg 1$ 即 $v_{t,\alpha} \ll \omega/k$）近似下，
+\begin{subequations}\begin{align}
+Z_r(\xi_\alpha) &\approx - \frac{1}{\xi_\alpha} \left(
+    1 + \frac{1}{2 \xi_\alpha^2} + \frac{3}{4 \xi_\alpha^4}
+\right) \\
+\chi_{r, \alpha} &\approx - \frac{\omega_{p,\alpha}^2}{\omega^2} \left(
+    1 + \frac{3 k^2 v_{t, \alpha}^2}{2 \omega^2}
+\right)
+\end{align}\end{subequations}
+
+在热等离子体（$\xi_\alpha \ll 1$ 即 $v_{t,\alpha} \gg \omega/k$）近似下，
+\begin{subequations}\begin{align}
+Z_r(\xi_\alpha) &\approx 2 \xi_\alpha \left(
+    \frac{2}{3} \xi_\alpha^2 - 1
+\right) \ll 1 \\
+\chi_{r, \alpha} &\approx \frac{1}{k^2 \lambda_{D,\alpha}^2}
+\end{align}\end{subequations}
+
+\section{平衡分布为麦克斯韦分布情况下的静电本征模}
+
+流体描述：
+\begin{itemize}
+\item 电子等离子体波（EPW）
+\begin{equation} \label{eq:321EPW}
+    \omega^2 = \omega_{p,e}^2 + \frac{3}{2} k^2 v_{t,e}^2
+    = \omega_{p,e}^2 \left( 1 + 3 k^2 \lambda_{D,e}^2 \right)
+\end{equation}
+\item 离子声波（IAW）
+\begin{equation} \label{eq:321IAW}
+    \omega^2 = k^2 \left( \frac{c_s^2}{1 + k^2 \lambda_{D,e}^2} + \frac{3}{2} v_{t,i}^2 \right)
+\end{equation}
+\end{itemize}
+
+\subsection{电子等离子体波（EPW）}
+
+\begin{itemize}
+    \item $\omega / k = v_p \gg v_{t,e} \gg v_{t,i}$
+    \item $\omega_{p,e} \gg \omega_{p,i}$
+    \item 忽略离子响应，$\chi_i \approx 0$
+\end{itemize}
+
+\begin{subequations}\begin{align}
+\chi_{\re,e} &\approx - \frac{\omega_{p,e}^2}{\omega^2} \left( 1 + \frac{3 k^2 v_{t,e}^2}{2 \omega^2} \right) \\
+\chi_{\im,e} &\approx \frac{\sqrt{\pi}}{k^2 \lambda_{D,e}^2} \xi_e \eu^{- \xi_e^2} \\
+\pdv{\chi_{\re,e}}{\omega} &= - 2 \frac{\omega_{p,e}^2}{\omega^3} \left( 1 + \frac{3 k^2 v_{t,e}^2}{\omega^2} \right)
+\end{align}\end{subequations}
+
+色散方程
+\begin{equation}
+\frac{\omega_{p,e}^2}{\omega_\re^2} \left( 1 + \frac{3 k^2 v_{t,e}^2}{2 \omega_\re^2} \right) = 1
+\end{equation}
+解得
+\begin{equation}
+\omega_\re^2 = \omega_{p,e}^2 + \frac{3}{2} k^2 v_{t,e}^2
+= \omega_{p,e}^2 \left( 1 + 3 k^2 \lambda_{D,e}^2 \right)
+\end{equation}
+
+\begin{equation}
+\frac{\omega_\im}{\omega_\re} = - \varepsilon_\im \left/ \omega_r \pdv{\varepsilon_\re}{\omega}\right.
+= - \sqrt{\frac{\pi}{8}} \frac{1}{k^2 \lambda_{D,e}^2} \exp\left(- \frac{1}{2 k^2 \lambda_{D,e}^2} - \frac{3}{2}\right)
+\end{equation}
+当 $k \lambda_{D,e} \to 0$ 时，$\omega_i / \omega_\re \to 0$，即长波的阻尼小。
+当 $k \lambda_{D,e} = 1 / \sqrt{3}{}$ 时，$\omega_\im / \omega_\re$ 最大，$(\omega_\im / \omega_\re)_{\max} \approx -0.162$，$\omega_\re=\sqrt{2} \omega_{p,e}$。
+
+波能
+\begin{equation}
+\pdv{\omega \varepsilon_\re}{\omega}
+= 2 \frac{\omega_{p,e^2}}{\omega_\re^2}
+\approx 2
+\end{equation}
+场能和动能各占一半。
+
+\subsection{离子声波（IAW）}
+
+\begin{itemize}
+    \item $v_{t,e} \gg \omega / k = v_p \gg v_{t,i}$
+    \item $\omega_{p,e} \gg \omega_{p,i}$
+    \item $\xi_i \gg 1 \gg \xi_e$
+\end{itemize}
+
+\begin{subequations}\begin{align}
+\chi_{\re,e} &\approx \frac{1}{k^2 \lambda_{D,e}^2} \\
+\chi_{\im,e} &= \frac{\sqrt\pi}{k^2 \lambda_{D,e}^2}
+    \xi_e \eu^{- \xi_e^2} \\
+\chi_{\re,i} &\approx - \frac{\omega_{p,i}^2}{\omega^2}
+    \ab[1 + \frac32 \frac{k^2 v_{t,i}^2}{\omega^2}] \\
+\chi_{\im,i} &= \frac{\sqrt\pi}{k^2 \lambda_{D,i}^2}
+    \xi_i \eu^{- \xi_i^2}
+\end{align}\end{subequations}
+
+色散方程
+\begin{equation}
+\varepsilon_\re
+= 1 + \frac{1}{k^2 \lambda_{D,e}^2}
+- \frac{\omega_{p,i}^2}{\Re(\omega)^2}
+\ab[1 + \frac32 \frac{k^2 v_{t,i}^2}{\Re(\omega)^2}]
+= 0
+\end{equation}
+解得
+\begin{subequations}\begin{align}
+\omega_\re &= k v_s \\
+v_s &= \sqrt{
+    \frac{c_s^2}{1 + k^2 \lambda_{D,e}^2} + \frac32 v_{t,i}^2
+}
+\end{align}\end{subequations}
+
+\begin{subequations}\begin{align}
+\varepsilon_\im &=
+\frac{\sqrt\pi}{k^2 \lambda_{D,e}^2}
+\xi_{\re,e} \eu^{- \xi_{\re,e}^2}
++ \frac{\sqrt\pi}{k^2 \lambda_{D,i}^2}
+\xi_{\re,i} \eu^{- \xi_{\re,i}^2} \\
+\odv{\varepsilon_\re}{\omega} &=
+\frac{2 \omega_{p,i}^2}{\omega_\re^3}
+\ab[1 + 3 \frac{k^2 v_{t,i}^2}{\omega_\re^2}] \\
+\frac{\omega_\im}{\omega_\re} &=
+- \sqrt\frac\pi8 \frac{v_s^3}{c_s^3} \ab[
+    \sqrt\frac{m_e}{m_i} \exp\ab(- \frac{v_s^2}{v_{t,e}^2})
+    + \ab(\frac{T_e}{\eu T_i})^{3/2}
+    \exp\ab(- \frac{T_e}{2 T_i \ab(1 + k^2 \lambda_{D,e}^2)})
+]
+\end{align}\end{subequations}
+
+\begin{itemize}
+    \item 长波，且 $T_e \gg T_i$ 时，有 $v_s = \omega / k \gg v_{t,i}$、
+    $\ab|\omega_\im| \ll \omega_\re$；
+    \item 短波时，有 $v_s \sim v_{t,i}$，离子与波相互作用强，阻尼大。
+\end{itemize}
+
+波能
+\begin{equation}
+\pdv{\omega \varepsilon_\re}{\omega}
+\approx 2 \ab(1 + \frac{1}{k^2 \lambda_{D,e}^2})
+\end{equation}
+长波情况下，由于场被屏蔽，动能远大于场能。
+
+\section{朗道（Landau）阻尼}
+
+\subsection{普莱姆（Plemelj）定理}
+
+对含奇点的柯西型积分来说，当奇点趋于积分路径上时，有
+\begin{equation}
+\int_L \frac{f(z)}{z - z_0} \d z
+= \PV\int_L \frac{f(z)}{z - z_0} \d z + \im\pi f(z_0)
+\end{equation}
+
+\subsection{朗道积分路径}
+
+需要保证奇点在定义域内，
+
+\subsection{介电函数中的积分}
+
+\subsection{朗道阻尼的物理图像}
+
+\subsubsection{电子等离子体波中的朗道阻尼}
+
+\subsubsection{非线性朗道阻尼的物理图像}
+
+速度与波相速度相近的粒子能够与波长时间地相互作用，发生共振。
+
+\subsubsection{线性朗道阻尼的物理机制}
+
+\subsection{朗道阻尼的推导}
+
+\section{初值问题、弹道模及其物理意义}
+
+\begin{equation}
+\phi_k(\omega, \vector{k}) = \frac{\im}{k^2 \varepsilon(\omega, \vector{k})} \sum_\alpha q_\alpha \int \frac{f_{\alpha,k}(0)}{\omega - \vector{k} \cdot \vector{v}} \d^3 \vector{v}
+\end{equation}
+逆变换
+\begin{equation}\begin{aligned}
+\phi(t, \vector{k}) &=
+\int_{-\infty+\im 0^+}^{+\infty+\im 0^+}
+\phi_k(\omega, \vector{k}) \eu^{-\im\omega t} \d \omega \\
+&= \frac{\im}{k^2} \sum_\alpha q_\alpha
+\int f_{\alpha,k}(0) \int_{-\infty+\im 0^+}^{+\infty+\im 0^+}
+    \frac{\eu^{-\im\omega t}}{
+        \ab(\omega - \vector{k} \cdot \vector{v})
+        \varepsilon(\omega, \vector{k})
+    } \d \omega
+\d^3 \vector{v} \\
+&= \frac{\im}{k^2} \sum_\alpha q_\alpha
+\int f_{\alpha,k}(0) \ab[
+    \frac{
+        \eu^{-\im \vector{k} \cdot \vector{v} t}
+    }{\varepsilon(\vector{k} \cdot \vector{v}, \vector{k})}
+    + \sum_j \frac{
+        \eu^{-\im \omega_j t}
+    }{
+        \ab(\omega_j - \vector{k} \cdot \vector{v})
+        \pdv{\varepsilon}!{\omega}|_{\omega_j}
+    }
+] \d^3 \vector{v}
+\end{aligned}\end{equation}
+其中，$\omega_j$ 为由色散方程 $\varepsilon(\omega_j, \vector{k}) = 0$ 得到的本征模。
+$\omega = \vector{k} \cdot \vector{v}$ 为弹道模。
+
+\section{电磁波模}
+
+\subsection{速度空间各向同性下的电磁波模}
+
+平衡态：$\vector{E}_0=\vector{0}$、$\vector{B}_0=\vector{0}$、$f_{\alpha,0}(\vector{r},\vector{v})=f_{\alpha,0}(v^2)$。
+
+泊松方程
+\begin{equation}\begin{gathered}
+\dive{\vector{E}_1} = \frac{1}{\varepsilon_0}
+\sum_\alpha q_\alpha \int f_{\alpha,1} \d^3\vector{v} \\
+\vector{k} \cdot \vector{E}_k
+= \frac{1}{\varepsilon_0}
+\sum_\alpha q_\alpha \int f_{\alpha,k} \d^3\vector{v}
+\end{gathered}\end{equation}
+
+波动方程
+\begin{equation}\begin{gathered}
+\curl{\curl{\vector{E}_1}} =
+- \frac{1}{c^2} \pdv[2]{\vector{E}_1}{t}
+- \mu_0 \pdv*{\ab(
+    \sum_\alpha q_\alpha \int \vector{v} f_{\alpha,1} \d^3\vector{v}
+)}{t} \\
+\ab(k^2 - \frac{\omega^2}{c^2}) \vector{E}_k
+= \vector{E}_k\cdot\vector{k}\vector{k} + \im\mu_0\omega
+    \sum_\alpha q_\alpha \int \vector{v} f_{\alpha,k} \d^3\vector{v}
+\end{gathered}\end{equation}
+
+弗拉索夫方程
+\begin{equation}\begin{gathered}
+\pdv{f_{\alpha,1}}{t}
++ \vector{v} \cdot \pdv{f_{\alpha,1}}{\vector{v}}
++ \frac{q_\alpha}{m_\alpha} \ab(\vector{E}_1 + \vector{v}\times\vector{B}_1)
+\cdot \pdv{f_{\alpha,0}}{\vector{v}}
+= 0 \\
+f_{\alpha,k} = -\im \frac{q_\alpha}{m_\alpha}
+\frac{\vector{E}_k}{\omega - \vector{k}\cdot\vector{v}}
+\cdot \pdv{f_{\alpha,0}}{\vector{v}}
+\end{gathered}\end{equation}
+其中
+\begin{equation}\begin{aligned}
+\ab(\vector{v} \times \vector{B}_1) \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+&= \ab(\vector{v} \times \vector{B}_1)
+\cdot \odv{f_{\alpha,0}}{v^2} \pdv{v^2}{\vector{v}} \\
+&= \ab(\vector{v} \times \vector{B}_1)
+\cdot 2 \odv{f_{\alpha,0}}{v^2} \vector{v} \\
+&= 0
+\end{aligned}\end{equation}
+则
+\begin{equation}\begin{aligned}
+\im\mu_0\omega q_\alpha \int \vector{v} f_{\alpha,k} \d^3\vector{v}
+&= \mu_0\omega \frac{q_\alpha^2}{m_\alpha}
+\int \vector{v} \frac{\vector{E}_k}{\omega - \vector{k}\cdot\vector{v}}
+\cdot \pdv{f_{\alpha,0}}{\vector{v}} \d^3\vector{v} \\
+&= \omega \frac{\omega_{p,\alpha}^2}{c^2} \int \left[
+\pdv{}{\vector{v}} \cdot \ab(
+    \hat{f}_{\alpha,0} \vector{E}_k
+    \frac{\vector{v}}{\omega - \vector{k}\cdot\vector{v}}
+)
+% \right. \\
+% &\quad\left.
+    - \hat{f}_{\alpha,0} \vector{E}_k \cdot
+    \pdv*{\ab(\frac{\vector{v}}{\omega-\vector{k}\cdot\vector{v}})}{\vector{v}}
+\right] \d^3\vector{v} \\
+&= - \omega \frac{\omega_{p,\alpha}^2}{c^2} \left[
+\vector{E}_k \int
+\frac{\hat{f}_{\alpha,0}}{\omega - \vector{k}\cdot\vector{v}}
+\d^3\vector{v}
++ \vector{k} \cdot \vector{E}_k \int
+\frac{\vector{v} \hat{f}_{\alpha,0}}
+{\ab(\omega - \vector{k}\cdot\vector{v})^2}
+\d^3\vector{v}
+\right]
+\end{aligned}\end{equation}
+代入波动方程得
+\begin{equation}\begin{aligned}
+\ab(\frac{\omega^2}{c^2} - k^2) \vector{E}_k
++ \vector{E}_k\cdot\vector{k}\vector{k}
+= \omega \sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2}
+\left[
+\vector{E}_k \int
+\frac{\hat{f}_{\alpha,0}}{\omega - \vector{k}\cdot\vector{v}}
+\d^3\vector{v}
++ \vector{k} \cdot \vector{E}_k \int
+\frac{\vector{v} \hat{f}_{\alpha,0}}
+{\ab(\omega - \vector{k}\cdot\vector{v})^2}
+\d^3\vector{v}
+\right]
+\end{aligned}\end{equation}
+考虑 $\perp\vector{k}$ 方向的波动方程：
+\begin{equation}\begin{aligned}
+\ab(\frac{\omega^2}{c^2} - k^2) \vector{k}\times\vector{E}_k
+= \omega \sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2}
+\left[
+\vector{k}\times\vector{E}_k \int
+\frac{\hat{f}_{\alpha,0}}{\omega - \vector{k}\cdot\vector{v}}
+\d^3\vector{v}
++ \vector{k} \cdot \vector{E}_k \int
+\frac{\vector{k}\times\vector{v} \hat{f}_{\alpha,0}}
+{\ab(\omega - \vector{k}\cdot\vector{v})^2}
+\d^3\vector{v}
+\right]
+\end{aligned}\end{equation}
+其中
+\begin{equation}\begin{aligned}
+\int
+\frac{\vector{k}\times\vector{v} \hat{f}_{\alpha,0}}
+{\ab(\omega - \vector{k}\cdot\vector{v})^2}
+\d^3\vector{v}
+&= \int
+\frac{\d v_\parallel}{\ab(\omega/k - v_\parallel)^2}
+\int \vector{v}_\perp \hat{f}_{\alpha,0}\ab(v_\perp^2 + v_\parallel^2)
+\d^2\vector{v}_\perp \\
+&= 0
+\end{aligned}\end{equation}
+则 $\perp\vector{k}$ 方向的波动方程可化简为
+\begin{equation}
+\ab[
+    1 - \frac{k^2 c^2}{\omega^2}
+    - \sum_\alpha \frac{\omega_{p,\alpha}^2}{\omega}
+    \int
+    \frac{\hat{f}_{\alpha,0}}{\omega - \vector{k}\cdot\vector{v}}
+    \d^3\vector{v}
+]
+\vector{k}\times\vector{E}_k = 0
+\end{equation}
+考虑到 $\omega/k \sim c \gg v_\parallel$，则色散关系可近似为
+\begin{equation}
+\omega^2 = k^2 c^2 + \sum_\alpha \omega_{p,\alpha}^2
+\end{equation}
+
+\subsection{速度空间各向异性下的电磁波模 —— Weibel 不稳定性}
+
+平衡分布 $f_{\alpha,0} = f_{\alpha,0}(v_\parallel^2, v_\perp^2)$。
+则 $\ab(\vector{v}\times\vector{B}_1)\cdot\pdv{f_{\alpha,0}}{\vector{v}}\neq0$。
+
+磁场扰动
+\begin{equation}
+\vector{B}_k = \frac{\vector{k} \times \vector{E}_k}{\omega}
+\end{equation}
+则弗拉索夫方程变为
+\begin{equation}\begin{gathered}
+\pdv{f_{\alpha,1}}{t}
++ \vector{v} \cdot \pdv{f_{\alpha,1}}{\vector{v}}
++ \frac{q_\alpha}{m_\alpha} \ab(\vector{E}_1 + \vector{v}\times\vector{B}_1)
+\cdot \pdv{f_{\alpha,0}}{\vector{v}}
+= 0 \\
+\begin{aligned}
+f_{\alpha,k} &= -\im \frac{q_\alpha}{m_\alpha}
+\frac{1}{\omega - \vector{k}\cdot\vector{v}} \ab[
+\vector{E}_k + \vector{v} \times
+\ab(\frac{\vector{k}}{\omega} \times \vector{E}_k)]
+\cdot \pdv{f_{\alpha,0}}{\vector{v}} \\
+&= -\im \frac{q_\alpha}{\omega m_\alpha} \ab(
+    \vector{E}_k + \frac{\vector{E}_k \cdot \vector{v}}
+    {\omega - \vector{k}\cdot\vector{v}} \vector{k}
+) \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+\end{aligned}
+\end{gathered}\end{equation}
+则
+\begin{equation}\begin{gathered}\begin{aligned}
+\im\mu_0\omega q_\alpha \int \vector{v} f_{\alpha,k} \d^3\vector{v}
+&= \mu_0 \frac{q_\alpha^2}{m_\alpha}
+\int \vector{v} \ab(
+    \vector{E}_k + \frac{\vector{E}_k \cdot \vector{v}}
+    {\omega - \vector{k}\cdot\vector{v}} \vector{k}
+)
+\cdot \pdv{f_{\alpha,0}}{\vector{v}} \d^3\vector{v} \\
+&= - \frac{\omega_{p,\alpha}^2}{c^2} \left[
+\int \hat{f}_{\alpha,0} \vector{E}_k \cdot \pdv{\vector{v}}{\vector{v}} \d^3\vector{v}
++ \int \hat{f}_{\alpha,0} \vector{k} \cdot
+    \pdv*{\ab(\frac{\vector{E}_k \cdot \vector{v}\vector{v}}
+    {\omega-\vector{k}\cdot\vector{v}})}{\vector{v}}
+\d^3\vector{v}
+\right]\end{aligned} \\
+= - \frac{\omega_{p,\alpha}^2}{c^2} \left[ \vector{E}_k
++ \vector{k} \cdot \vector{E}_k \int
+    \frac{\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\omega-\vector{k}\cdot\vector{v}}
++ \vector{k} \vector{E}_k \cdot \int
+    \frac{\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\omega-\vector{k}\cdot\vector{v}}
++ k^2 \vector{E}_k \cdot \int
+    \frac{\vector{v}\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\ab(\omega-\vector{k}\cdot\vector{v})^2}
+\right]
+\end{gathered}\end{equation}
+代入波动方程得
+\begin{equation}\begin{gathered}
+\ab(\frac{\omega^2}{c^2} - k^2) \vector{E}_k
++ \vector{E}_k \cdot \vector{k}\vector{k}
+= \\
+\sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2}
+\left[ \vector{E}_k
++ \vector{k} \cdot \vector{E}_k \int
+    \frac{\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\omega-\vector{k}\cdot\vector{v}}
++ \vector{k} \vector{E}_k \cdot \int
+    \frac{\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\omega-\vector{k}\cdot\vector{v}}
++ k^2 \vector{E}_k \cdot \int
+    \frac{\vector{v}\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\ab(\omega-\vector{k}\cdot\vector{v})^2}
+\right]
+\end{gathered}\end{equation}
+考虑 $\perp\vector{k}$ 方向的波动方程：
+\begin{equation}\begin{gathered}
+\ab(\frac{\omega^2}{c^2} - k^2) \vector{k}\times\vector{E}_k
+= \\
+\sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2}
+\left[ \vector{k}\times\vector{E}_k
++ \vector{k} \cdot \vector{E}_k \int
+    \frac{\vector{k}\times\vector{v} \hat{f}_{\alpha,0}}
+    {\omega-\vector{k}\cdot\vector{v}} \d^3\vector{v}
++ k^2 \vector{k}\times \ab(\vector{E}_k \cdot \int
+    \frac{\vector{v}\vector{v} \hat{f}_{\alpha,0} \d^3\vector{v}}
+    {\ab(\omega-\vector{k}\cdot\vector{v})^2})
+\right] \\
+\ab(\frac{\omega^2}{c^2} - k^2
+- \sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2})
+\vector{k} \times \vector{E}_k
+= \sum_\alpha \frac{\omega_{p,\alpha}^2}{c^2}k^2 \int
+    \frac{\vector{E}_k \cdot \vector{v} \vector{k} \times \vector{v}}
+    {\ab(\omega-\vector{k}\cdot\vector{v})^2}
+\hat{f}_{\alpha,0} \d^3\vector{v}
+\end{gathered}\end{equation}
+得
+\begin{equation}
+\omega^2 - k^2 c^2 - \sum_\alpha \omega_{p,\alpha}^2 \ab(
+    1 + \frac{k^2}{\omega^2} \ab<v_{\alpha\perp}^2>
+)
+\end{equation}
+令
+\begin{subequations}\begin{align}
+\omega_p^2 &= \sum_\alpha \omega_{p,\alpha}^2 \\
+\ab<v_\perp^2> &= \frac{1}{\omega_p^2}
+    \sum_\alpha \omega_{p,\alpha}^2 \ab<v_{\alpha\perp}^2>
+\end{align}\end{subequations}
+得
+\begin{equation}
+\omega^2 = \frac{k^2 c^2 + \omega_p^2}{2} \ab[
+    1 \pm \sqrt{1 + 
+        \frac{4 k^2 \omega_p^2 \ab<v_\perp^2>}
+        {\ab(k^2 c^2 + \omega_p^2)^2}
+}]
+\end{equation}
+有一对实根与一对纯虚根。
+当 $k \to 0$ 时，纯虚根 $\Im(\omega) \to 0$。
+当 $k \gg \omega_p/c$ 时，纯虚根 $\Im(\omega) \approx \omega_p \sqrt{\ab<v_\perp^2>}/c$。

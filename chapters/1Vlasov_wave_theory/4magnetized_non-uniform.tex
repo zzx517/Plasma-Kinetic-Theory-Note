@@ -1,0 +1,114 @@
+
+\chapter{空间非均匀、外磁场均匀的线性波动问题}
+
+平衡量：
+\begin{subequations}\begin{align}
+\vector{E}_0 &= \vector{0} \\
+\vector{B}_0 &= B_0 \vector{e}_z \\
+n_{\alpha,0} &= n_{\alpha,0}(x) \\
+\vector{u}_{\alpha,0} &= u_{\alpha,0} \vector{e}_y
+\end{align}\end{subequations}
+
+\section{流体描述概述}
+
+\subsection{抗磁漂移速度}
+
+运动方程
+\begin{equation}
+m_\alpha n_{\alpha,0} \ab(
+    \pdv{\vector{u}_{\alpha,0}}
+    + \vector{u}_{\alpha,0} \cdot \grad{\vector{u}_{\alpha,0}}
+)
+= q_\alpha n_{\alpha,0} \vector{u}_{\alpha,0} \times \vector{B}_0
+- \grad{p_{\alpha,0}}
+\end{equation}
+
+平衡态：$\pdv{}{t} = 0$，则
+\begin{equation}
+q_\alpha n_{\alpha,0} \vector{u}_{\alpha,0} \times \vector{B}_0 = \grad{p_{\alpha,0}}
+\end{equation}
+
+\begin{equation}
+\vector{u}_{\alpha,0,\perp} = \frac{
+    \grad{p_{\alpha,0}} \times \vector{B}_0
+}{q_\alpha n_{\alpha,0} B_0^2}
+\end{equation}
+
+等温：$p_{\alpha,0} = T_\alpha n_{\alpha,0}$，则
+\begin{equation}
+\vector{v}_{D,\alpha} = \frac{T_\alpha}{q_\alpha B_0^2}
+\frac{\grad{n_{\alpha,0}}}{n_{\alpha,0}} \times \vector{B}_0
+\end{equation}
+
+\subsection{静电漂移波}
+
+\begin{itemize}
+    \item 波矢 $\vector{k} = k_\perp \vector{e}_y + k_\parallel \vector{e}_z$。
+    \item 低频 $\omega \ll \omega_{c,i}$、$v_{t,i} \ll \omega / k_\parallel \ll v_{t,e}$。
+    \item 冷离子 $T_i \ll T_e$。
+    \item 局域近似 $k \gg \grad{n_{\alpha,0}}/n_{\alpha,0}$，可以作局域傅里叶/拉普拉斯变换。
+\end{itemize}
+
+色散关系：
+\begin{equation}
+\ab(1 + k^2 \lambda_{D,e}^2) \omega^2 - k_\perp v_{D,e} \omega - k_\parallel^2 c_s^2 = 0
+\end{equation}
+解得
+\begin{equation}\begin{aligned}
+\omega &= \frac{
+    k_\perp v_{D,e} \pm \sqrt{k_\perp^2 v_{D,e}^2
+    + 4 \ab(1 + k^2 \lambda_{D,e}^2) k_\parallel^2 c_s^2}
+}{
+    2 \ab(1 + k^2 \lambda_{D,e}^2)
+} \\
+&= \frac{k_\perp v_{D,e}}{2} \pm \sqrt{\frac{k_\perp^2 v_{D,e}^2}{4}
+    + k_\parallel^2 c_s^2}, \quad k^2 \lambda_{D,e}^2 \ll 1
+\end{aligned}\end{equation}
+
+\begin{itemize}
+    \item 当 $k_\parallel \gg k_\perp$ 时，
+    $\omega \approx k_\perp v_{D,e}/2 \pm k_\parallel c_s \approx \pm k_\parallel c_s$，声波。
+    \item 当 $k_\parallel \ll k_\perp$ 时，
+    $\omega \approx k_\perp v_{D,e}$，漂移波。
+\end{itemize}
+
+\paragraph{考虑离子热压}
+\begin{equation}
+\ab(1 + k^2 \lambda_{D,e}^2) \omega^2
+- k_\perp \ab(v_{D,e} - \gamma_i v_{D,i}) \omega
+- k_\parallel^2 c_s^2 = 0
+\end{equation}
+解得
+\begin{equation}\begin{aligned}
+\omega &= \frac{
+    k_\perp \ab(v_{D,e} - \gamma_i v_{D,i}) \pm \sqrt{k_\perp^2 \ab(v_{D,e} - \gamma_i v_{D,i})^2
+    + 4 \ab(1 + k^2 \lambda_{D,e}^2) k_\parallel^2 c_s^2}
+}{
+    2 \ab(1 + k^2 \lambda_{D,e}^2)
+} \\
+&= \frac{k_\perp \ab(v_{D,e} - \gamma_i v_{D,i})}{2} \pm \sqrt{\frac{k_\perp^2 \ab(v_{D,e} - \gamma_i v_{D,i})^2}{4}
+    + k_\parallel^2 c_s^2}, \quad k^2 \lambda_{D,e}^2 \ll 1
+\end{aligned}\end{equation}
+
+\subsection{电磁漂移波}
+
+\begin{itemize}
+    \item 波矢 $\vector{k} = k_\perp \vector{e}_y$。
+    \item 频率 $\omega_{c,i} \ll \omega \ll \omega_{c,e}$、$v_{t,i} \ll \omega / k_\parallel \ll v_{t,e}$。
+    % \item 冷离子 $T_i \ll T_e$。
+    \item 局域近似 $k \gg \grad{n_{\alpha,0}}/n_{\alpha,0}$，可以作局域傅里叶/拉普拉斯变换。
+\end{itemize}
+
+\begin{equation}
+\ab(\omega - k v_{i,0})^2 = \frac{\omega_{p,i}^2}{
+    1 + \frac{\omega_{p,e}^2}{\omega_{c,e}^2} \ab(
+    1 + \frac{\omega_{p,e}^2}{k^2 c^2}
+    + \frac{\omega_{c,e} k_\perp}{\omega k^2 n_{\alpha,0}} \odv{n_{\alpha,0}}{x}
+)}
+\end{equation}
+
+\section{密度不均匀时弗拉索夫方程的平衡解}
+
+\section{动理学电磁漂移波}
+
+\section{动理学静电漂移波}

@@ -1,0 +1,95 @@
+
+\chapter{碰撞算子}
+
+\section{BGK 碰撞项}
+
+\begin{equation}
+\ab(\pdv{f}{t})_c = - \frac{f - f_0}{\tau_c} = - \nu_c \ab(f - f_0)
+\end{equation}
+弛豫时间近似，适用于偏离平衡态不远的情况。
+
+\section{玻尔兹曼（Boltzmann）碰撞项}
+
+基本假定：
+\begin{enumerate}
+    \item 两体碰撞；
+    \item 碰撞前后自由运动；
+    \item 分子混沌，碰撞几率只与 $f_1 f_2$ 有关，与关联函数 $P_{12}(f_1,f_2)$ 无关。
+\end{enumerate}
+
+\begin{equation}
+\ab(\pdv{f}{t})_c = \iint \ab[
+    f_1(\vector{v}_1') f_2(\vector{v}_2')
+    - f_1(\vector{v}_1) f_2(\vector{v}_2)
+] \ab|\vector{v}_1 - \vector{v}_2| \odv{\sigma}{\Omega}
+\d\Omega \d^3\vector{v}_2
+\end{equation}
+
+\section{Fokker-Planck 碰撞项}
+
+基本假定：
+\begin{enumerate}
+    \item 马尔科夫过程；
+    \item 小角散射，$\Delta\vector{v}\ll\vector{v}$。
+\end{enumerate}
+
+\begin{equation}
+\ab(\pdv{f}{t})_c =
+- \pdv{}{\vector{v}} \cdot \ab(f \ab<\Delta\vector{v}>)
++ \frac{1}{2} \pdv[2]{}{\vector{v}} \cdot
+\ab(f \ab<\Delta\vector{v} \Delta\vector{v}>)
+\end{equation}
+其中
+\begin{subequations}\begin{align}
+\ab<\Delta\vector{v}> &= \frac{1}{\Delta t}
+\int \Phi(\vector{v}, \Delta\vector{v})
+\Delta\vector{v} \d\ab(\Delta\vector{v}) \\
+\ab<\Delta\vector{v}\Delta\vector{v}> &= \frac{1}{\Delta t}
+\int \Phi(\vector{v}, \Delta\vector{v})
+\Delta\vector{v}\Delta\vector{v} \d\ab(\Delta\vector{v})
+\end{align}\end{subequations}
+分别为动理学摩擦系数、动理学扩散系数。
+
+\section{Rosenbluth 势}
+
+基本假定：
+\begin{enumerate}
+    \item Fokker-Planck 碰撞项；
+    \item 两体碰撞；
+    \item 库伦碰撞。
+\end{enumerate}
+
+\begin{subequations}\begin{align}
+\ab<\Delta\vector{v}> &= \Gamma_1 \pdv{H}{\vector{v}_1} \\
+\ab<\Delta\vector{v}\Delta\vector{v}> &=
+    \Gamma_1 \pdv{G}{\vector{v}_1,\vector{v}_1} \\
+\Gamma_1 = \frac{q_1^4}{\varepsilon_0 m_1^2} \ln\Lambda \\
+H(\vector{v}_1) &= \frac{q_2^2}{q_1^2} \frac{m_1 + m_2}{m_2}
+\int \frac{f_2(\vector{v}_2)}{\ab|\vector{v}_1 - \vector{v}_2|} \d^2\vector{v}_2 \\
+G(\vector{v}_1) &= \frac{q_2^2}{q_1^2}
+\int \ab|\vector{v}_1 - \vector{v}_2| f_2(\vector{v}_2) \d^2\vector{v}_2 \\
+\end{align}\end{subequations}
+
+\section{朗道（Landau）碰撞项}
+
+基本假定：
+\begin{enumerate}
+    \item 玻尔兹曼（Boltzmann）碰撞项；
+    \item 库伦碰撞；
+    \item 小角散射，$\Delta\vector{v}\ll\vector{v}$。
+\end{enumerate}
+
+\begin{equation}
+\ab(\pdv{f_\alpha}{t})_c =
+\frac{\Gamma_\alpha}{2} \sum_\beta \frac{q_\beta^2}{q_\alpha^2} m_\alpha
+\pdv{}{\vector{v}_\alpha} \cdot
+\int \pdv{\ab|\vector{v}_\alpha-\vector{v}_\beta|}{\vector{v}_\alpha,\vector{v}_\alpha}
+\cdot \ab(
+    \frac{f_\beta}{m_\alpha} \pdv{f_\alpha}{\vector{v}_\alpha}
+    - \frac{f_\alpha}{m_\beta} \pdv{f_\beta}{\vector{v}_\beta}
+) \d^3\vector{v}_\beta
+\end{equation}
+
+\section{弹性碰撞的守恒性质}
+
+\section{试探粒子的各种碰撞频率}

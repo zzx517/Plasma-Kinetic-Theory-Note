@@ -1,0 +1,181 @@
+
+\chapter{输运}
+
+\section{磁化等离子体中的经典输运}
+
+\subsection{弛豫时间近似法}
+
+\begin{equation}
+\pdv{f_1}{t} + \vector{v} \cdot \pdv{f_0}{\vector{r}}
++ \frac{\vector{F}}{m} \cdot \pdv{f_0}{\vector{v}}
+= - \nu f_1
+\end{equation}
+
+若考虑定态问题 $\pdv{f_1}!{t}=0$，则
+\begin{equation}
+f_1 = - \frac{1}{\nu} \ab(\vector{v} \cdot \pdv{f_0}{\vector{r}}
++ \frac{\vector{F}}{m} \cdot \pdv{f_0}{\vector{v}})
+\end{equation}
+
+\subsubsection{粒子流与扩散系数}
+
+假定：
+\begin{enumerate}
+    \item $\grad{n} \neq 0$
+    \item $\grad{T} = 0$
+    \item $\vector{u} = \vector{0}$
+    \item $\vector{F} = \vector{0}$
+\end{enumerate}
+则
+\begin{equation}\begin{aligned}
+f_1 &= - \frac{1}{\nu} \vector{v} \cdot \pdv{f_0}{\vector{r}} \\
+&=- \frac{\hat{f}_M}{\nu} \vector{v} \cdot \grad{n}
+\end{aligned}\end{equation}
+
+粒子流
+\begin{equation}\begin{aligned}
+\vector{\Gamma} &= \int \vector{v} f_1 \d^3\vector{v} \\
+&= - \frac{\grad{n}}{\nu} \cdot \int \hat{f}_M \vector{v}\vector{v} \d^3\vector{v} \\
+&= - \frac{\grad{n}}{\nu} \cdot \ab<\vector{v}\vector{v}> \\
+&= - \frac{T}{\nu m} \grad{n}
+\end{aligned}\end{equation}
+扩散系数
+\begin{equation}
+D = \frac{T}{\nu m}
+\end{equation}
+
+\subsubsection{电流、电导率与迁移率}
+
+假定：
+\begin{enumerate}
+    \item $\grad{n} = 0$
+    \item $\grad{T} = 0$
+    \item $\vector{u} = \vector{0}$
+    \item $\vector{F} = q\vector{E} \neq 0$
+\end{enumerate}
+则
+\begin{equation}
+f_1 = - \frac{q}{\nu m} \vector{E} \cdot \pdv{f_0}{\vector{v}}
+\end{equation}
+
+电流
+\begin{equation}\begin{aligned}
+\vector{J} &= q \int \vector{v} f_1 \d^3\vector{v} \\
+&= - \frac{q^2}{\nu m} \vector{E} \cdot
+\int \pdv{f_0}{\vector{v}} \vector{v} \d^3\vector{v} \\
+&= \frac{q^2}{\nu m} \vector{E} \cdot
+\int \pdv{\vector{v}}{\vector{v}} f_0 \d^3\vector{v} \\
+&= \frac{q^2 n}{\nu m} \vector{E}
+\end{aligned}\end{equation}
+电导率
+\begin{equation}
+\sigma = \frac{q^2 n}{\nu m}
+\end{equation}
+
+电流引起的粒子流
+\begin{equation}
+\vector{\Gamma} = \frac{1}{q} \vector{J}
+= \frac{q n}{\nu m} \vector{E} = \mu n \vector{E}
+\end{equation}
+迁移率
+\begin{equation}
+\mu = \frac{\sigma}{q n} = \frac{q}{\nu m}
+\end{equation}
+
+\subsubsection{粘滞张量与粘滞系数}
+
+假定：
+\begin{enumerate}
+    \item $\grad{n} = 0$
+    \item $\grad{T} = 0$
+    \item $\vector{u} \neq \vector{0}$、$\dive{\vector{u}} \neq 0$
+    \item $\vector{F} = \vector{0}$
+\end{enumerate}
+则
+\begin{equation}
+f_1 = - \frac{1}{\nu} \vector{v} \cdot \pdv{f_0}{\vector{r}}
+\end{equation}
+
+粘滞张量
+\begin{equation}\begin{aligned}
+\vector{\Pi} &= \int m \vector{w}\vector{w} f_1 \d^3\vector{v} \\
+&= - \frac{m}{\nu} \int \vector{w}\vector{w}
+    \vector{v} \cdot \pdv{f_0}{\vector{r}} \d^3\vector{v} \\
+&= - \frac{m}{\nu} \int \ab(\vector{v}-\vector{u})\ab(\vector{v}-\vector{u})
+    \vector{v} \cdot \pdv{f_0}{\vector{r}} \d^3\vector{v} \\
+&= - \frac{m}{\nu} \dive{\int f_0 \vector{v}\vector{w}\vector{w} \d^3\vector{v}}
++ \frac{m}{\nu} \int f_0 \vector{v} \cdot
+    \grad{\ab[\ab(\vector{v}-\vector{u})\ab(\vector{v}-\vector{u})]}
+ \d^3\vector{v} \\
+&= - \frac{m}{\nu} \dive{\int f_0 \vector{v}\vector{w}\vector{w} \d^3\vector{v}}
+- \frac{m}{\nu} \int f_0 \ab[
+    \ab(\vector{v} \cdot \grad{\vector{u}}) \vector{w}
+    + \vector{w} \ab(\vector{v} \cdot \grad{\vector{u}})
+] \d^3\vector{v} \\
+&= - \frac{m}{\nu} \dive{\ab(\vector{u}\int f_0 \vector{w}\vector{w} \d^3\vector{v})}
+- \frac{m}{\nu} \int f_0 \ab[
+    \ab(\vector{w} \cdot \grad{\vector{u}}) \vector{w}
+    + \vector{w} \ab(\vector{w} \cdot \grad{\vector{u}})
+] \d^3\vector{v} \\
+&= - \frac{n T}{\nu} \ab[ \ab(\dive{\vector{u}}) \vector{I}
+    + \grad{\vector{u}} + \grad{\vector{u}}^\T]
+\end{aligned}\end{equation}
+
+粘滞系数
+\begin{equation}
+\varsigma = \frac{n T}{\nu} = m n D
+\end{equation}
+
+\subsubsection{热流与热传导系数}
+
+假定：
+\begin{enumerate}
+    \item $\grad{n} \neq 0$
+    \item $\grad{T} \neq 0$
+    \item $\grad{n T} = 0$
+    \item $\vector{u} = \vector{0}$
+    \item $\vector{F} = \vector{0}$
+\end{enumerate}
+则
+\begin{equation}
+f_1 = - \frac{1}{\nu} \vector{v} \cdot \pdv{f_0}{\vector{r}}
+\end{equation}
+
+热流
+\begin{equation}\begin{aligned}
+\vector{q} &= \int \frac{1}{2} m \vector{w}^2 \vector{w} f_1 \d^3\vector{v} \\
+&= - \frac{m}{2 \nu} \int \vector{w}^2 \vector{w}
+    \vector{v} \cdot \pdv{f_0}{\vector{r}} \d^3\vector{v} \\
+&= - \frac{m}{2 \nu} \dive{\ab(n \int \vector{v}^2 \vector{v}
+    \vector{v} \hat{f}_M \d^3\vector{v})} \\
+&= - \frac{m}{6 \nu} \grad{\ab(n \int v^4 \hat{f}_m \d^3\vector{v})} \\
+&= - \frac{5 n T}{2 \nu m} \grad{T}
+\end{aligned}\end{equation}
+热传导系数
+\begin{equation}
+\kappa = \frac{5 n T}{2 \nu m}
+\end{equation}
+
+\subsection{垂直磁场方向的输运}
+
+\subsubsection{垂直磁场的扩散系数}
+
+除 $\vector{B} \neq 0$ 外，其他假设与之前相同。则
+\begin{equation}
+\nu f_1 + \vector{v} \cdot \pdv{f_0}{\vector{r}}
++ \frac{q}{m} \ab(\vector{v} \times \vector{B}) \cdot \pdv{f_1}{\vector{v}}
+= 0
+\end{equation}
+其中，若 $f_0$ 各向同性，则
+\begin{equation}
+\ab(\vector{v} \times \vector{B}) \cdot \pdv{f_0}{\vector{v}} = 0
+\end{equation}
+
+\begin{subequations}\begin{align}
+D_\perp &= \frac{1}{1 + \omega_c^2 / \nu^2} D_\parallel \\
+D_H &= \frac{\omega_c / \nu}{1 + \omega_c^2 / \nu^2} D_\parallel \\
+\sigma_\perp &= \frac{1}{1 + \omega_c^2 / \nu^2} \sigma_\parallel \\
+\sigma_H &= \frac{\omega_c / \nu}{1 + \omega_c^2 / \nu^2} \sigma_\parallel \\
+\kappa_\perp &= \frac{1}{1 + \omega_c^2 / \nu^2} \kappa_\parallel \\
+\kappa_H &= \frac{\omega_c / \nu}{1 + \omega_c^2 / \nu^2} \kappa_\parallel
+\end{align}\end{subequations}
