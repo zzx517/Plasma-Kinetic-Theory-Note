@@ -3,93 +3,93 @@
 
 \section{弗拉索夫方程组}
 
-分布函数 $f_\alpha(t, \vector{r}, \vector{v})$ 代表了在 $t$ 时刻、位置在体积元 $\d^3\vector{r}$ 范围内、速度在体积元 $\d^3\vector{v}$ 范围内的 $\alpha$ 粒子数目。也可以使用它的归一化形式：
+分布函数 $f_\alpha(t, \vec{r}, \vec{v})$ 代表了在 $t$ 时刻、位置在体积元 $\d^3\vec{r}$ 范围内、速度在体积元 $\d^3\vec{v}$ 范围内的 $\alpha$ 粒子数目。也可以使用它的归一化形式：
 \begin{subequations}\begin{align}
-\hat{f}_\alpha(t, \vector{r}, \vector{v}) &
-= \frac{f_\alpha(t, \vector{r}, \vector{v})}
-{n_\alpha(t, \vector{r})} \\
-n_\alpha(t, \vector{r}) &= \int f_\alpha(t, \vector{r}, \vector{v}) \d^3\vector{v}
+\hat{f}_\alpha(t, \vec{r}, \vec{v}) &
+= \frac{f_\alpha(t, \vec{r}, \vec{v})}
+{n_\alpha(t, \vec{r})} \\
+n_\alpha(t, \vec{r}) &= \int f_\alpha(t, \vec{r}, \vec{v}) \d^3\vec{v}
 \end{align}\end{subequations}
 
 分布函数的时间演化，是由动理学方程和麦克斯韦方程组联合描述：
 \begin{subequations}\begin{gather}
 \pdv{f_\alpha}{t}
-+ \vector{v} \cdot \pdv{f_\alpha}{\vector{r}}
++ \vec{v} \cdot \pdv{f_\alpha}{\vec{r}}
 + \frac{q_\alpha}{m_\alpha} \ab(
-    \vector{E} + \vector{v} \times \vector{B}
-) \cdot \pdv{f_\alpha}{\vector{v}}
+    \vec{E} + \vec{v} \times \vec{B}
+) \cdot \pdv{f_\alpha}{\vec{v}}
 = \ab(\pdv{f_\alpha}{t})_c \\
-\dive{\vector{E}} = \frac{1}{\varepsilon_0}
-\sum_\alpha q_\alpha \int f_\alpha \, \dif^3 \vector{v}
+\dive{\vec{E}} = \frac{1}{\varepsilon_0}
+\sum_\alpha q_\alpha \int f_\alpha \d^3 \vec{v}
 + \frac{\rho_{\text{ext}}}{\varepsilon_0} \\
-\curl{\vector{E}} = - \pdv{\vector{B}}{t} \\
-\dive{\vector{B}} = 0 \\
-\curl{\vector{B}} = \varepsilon_0 \mu_0 \pdv{\vector{E}}{t}
-+ \mu_0 \sum_\alpha q_\alpha \int \vector{v} f_\alpha \, \dif^3 \vector{v}
-+ \mu_0 \vector{J}_{\text{ext}}
+\curl{\vec{E}} = - \pdv{\vec{B}}{t} \\
+\dive{\vec{B}} = 0 \\
+\curl{\vec{B}} = \varepsilon_0 \mu_0 \pdv{\vec{E}}{t}
++ \mu_0 \sum_\alpha q_\alpha \int \vec{v} f_\alpha \d^3 \vec{v}
++ \mu_0 \vec{J}_{\text{ext}}
 \end{gather}\end{subequations}
-其中，$\rho_{\text{ext}}$ 与 $\vector{J}_{\text{ext}}$ 是外加的电荷密度与电流密度。$\ab(\pdv{f_\alpha}/{t})_c$ 是碰撞引起的分布函数变化速率，在无碰撞的情况下，此项可以忽略，此时，上述方程组就称为 \textbf{弗拉索夫方程组}。
+其中，$\rho_{\text{ext}}$ 与 $\vec{J}_{\text{ext}}$ 是外加的电荷密度与电流密度。$\ab(\pdv{f_\alpha}/{t})_c$ 是碰撞引起的分布函数变化速率，在无碰撞的情况下，此项可以忽略，此时，上述方程组就称为 \textbf{弗拉索夫方程组}。
 
 \subsubsection{线性问题及其分类}
 
 与之前类似，我们可以将物理量根据时空的变化速率的快慢分为零阶量和一阶量：
 \begin{subequations}\begin{align}
-f_\alpha(t, \vector{r}, \vector{v}) &= f_{\alpha,0}(t, \vector{r}, \vector{v}) + f_{\alpha,1}(t, \vector{r}, \vector{v}) \\
-\vector{E}(t, \vector{r}) &= \vector{E}_0(t, \vector{r}) + \vector{E}_1(t, \vector{r}) \\
-\vector{B}(t, \vector{r}) &= \vector{B}_0(t, \vector{r}) + \vector{B}_1(t, \vector{r})
+f_\alpha(t, \vec{r}, \vec{v}) &= f_{\alpha,0}(t, \vec{r}, \vec{v}) + f_{\alpha,1}(t, \vec{r}, \vec{v}) \\
+\vec{E}(t, \vec{r}) &= \vec{E}_0(t, \vec{r}) + \vec{E}_1(t, \vec{r}) \\
+\vec{B}(t, \vec{r}) &= \vec{B}_0(t, \vec{r}) + \vec{B}_1(t, \vec{r})
 \end{align}\end{subequations}
 且一阶量远小于零阶量
 \begin{equation}
 f_{\alpha,1} \ll f_{\alpha,0}, \quad
-\vector{E}_1 \ll \vector{E}_0, \quad
-\vector{B}_1 \ll \vector{B}_0
+\vec{E}_1 \ll \vec{E}_0, \quad
+\vec{B}_1 \ll \vec{B}_0
 \end{equation}
 
 这样，我们可以将总演化方程组分开写成零阶方程
 \begin{subequations}\begin{gather}
 \pdv{f_{\alpha,0}}{t}
-+ \vector{v} \cdot \pdv{f_{\alpha,0}}{\vector{r}}
++ \vec{v} \cdot \pdv{f_{\alpha,0}}{\vec{r}}
 + \frac{q_\alpha}{m_\alpha} \big(
-    \vector{E}_0 + \vector{v} \times \vector{B}_0
-\big) \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+    \vec{E}_0 + \vec{v} \times \vec{B}_0
+\big) \cdot \pdv{f_{\alpha,0}}{\vec{v}}
 = \left( \pdv{f_{\alpha,0}}{t} \right)_c \\
-\dive{\vector{E}_0} = \frac{1}{\varepsilon_0}
-\sum_\alpha q_\alpha \int f_{\alpha,0} \, \dif^3 \vector{v}
+\dive{\vec{E}_0} = \frac{1}{\varepsilon_0}
+\sum_\alpha q_\alpha \int f_{\alpha,0} \d^3 \vec{v}
 + \frac{\rho_{\text{ext}}}{\varepsilon_0} \\
-\curl{\vector{E}_0} = - \pdv{\vector{B}_0}{t} \\
-\dive{\vector{B}_0} = 0 \\
-\curl{\vector{B}_0} = \varepsilon_0 \mu_0 \pdv{\vector{E}_0}{t}
-+ \mu_0 \sum_\alpha q_\alpha \int \vector{v} f_{\alpha,0} \, \dif^3 \vector{v}
-+ \mu_0 \vector{J}_{\text{ext}}
+\curl{\vec{E}_0} = - \pdv{\vec{B}_0}{t} \\
+\dive{\vec{B}_0} = 0 \\
+\curl{\vec{B}_0} = \varepsilon_0 \mu_0 \pdv{\vec{E}_0}{t}
++ \mu_0 \sum_\alpha q_\alpha \int \vec{v} f_{\alpha,0} \d^3 \vec{v}
++ \mu_0 \vec{J}_{\text{ext}}
 \end{gather}\end{subequations}
 和一阶方程
 \begin{subequations}\begin{gather}
 \pdv{f_{\alpha,1}}{t}
-+ \vector{v} \cdot \pdv{f_{\alpha,1}}{\vector{r}}
++ \vec{v} \cdot \pdv{f_{\alpha,1}}{\vec{r}}
 + \frac{q_\alpha}{m_\alpha} \big(
-    \vector{E}_0 + \vector{v} \times \vector{B}_0
-\big) \cdot \pdv{f_{\alpha,1}}{\vector{v}}
+    \vec{E}_0 + \vec{v} \times \vec{B}_0
+\big) \cdot \pdv{f_{\alpha,1}}{\vec{v}}
 + \frac{q_\alpha}{m_\alpha} \big(
-    \vector{E}_1 + \vector{v} \times \vector{B}_1
-\big) \cdot \pdv{f_{\alpha,0}}{\vector{v}}
+    \vec{E}_1 + \vec{v} \times \vec{B}_1
+\big) \cdot \pdv{f_{\alpha,0}}{\vec{v}}
 = \left( \pdv{f_{\alpha,1}}{t} \right)_c \\
-\dive{\vector{E}_1} = \frac{1}{\varepsilon_0}
-\sum_\alpha q_\alpha \int f_{\alpha,1} \, \dif^3 \vector{v} \\
-\curl{\vector{E}_1} = - \pdv{\vector{B}_1}{t} \\
-\dive{\vector{B}_1} = 0 \\
-\curl{\vector{B}_1} = \varepsilon_0 \mu_0 \pdv{\vector{E}_1}{t}
-+ \mu_0 \sum_\alpha q_\alpha \int \vector{v} f_{\alpha,1} \, \dif^3 \vector{v}
+\dive{\vec{E}_1} = \frac{1}{\varepsilon_0}
+\sum_\alpha q_\alpha \int f_{\alpha,1} \d^3 \vec{v} \\
+\curl{\vec{E}_1} = - \pdv{\vec{B}_1}{t} \\
+\dive{\vec{B}_1} = 0 \\
+\curl{\vec{B}_1} = \varepsilon_0 \mu_0 \pdv{\vec{E}_1}{t}
++ \mu_0 \sum_\alpha q_\alpha \int \vec{v} f_{\alpha,1} \d^3 \vec{v}
 \end{gather}\end{subequations}
 
 在比较简单的情况下，平衡分布 $f_{\alpha,0}$ 往往取热力学平衡分布——麦克斯韦分布：
 \begin{equation} \label{eq:Maxwell_distribution} \begin{aligned}
 \hat{f}_{\text{M}, \alpha}
 &= \left(\frac{m_\alpha}{2 \pi T_\alpha}\right)^{3/2}
-\exp{\left[- \frac{m_\alpha}{2 T_\alpha} (\vector{v} - \vector{u}_\alpha)^2\right]} \\
+\exp{\left[- \frac{m_\alpha}{2 T_\alpha} (\vec{v} - \vec{u}_\alpha)^2\right]} \\
 &= \frac{1}{\sqrt{\pi^3} v_{t, \alpha}^3}
-\exp{\left[- \frac{(\vector{v} - \vector{u}_\alpha)^2}{v_{t, \alpha}^2}\right]}
+\exp{\left[- \frac{(\vec{v} - \vec{u}_\alpha)^2}{v_{t, \alpha}^2}\right]}
 \end{aligned}\end{equation}
-其中，$\vector{u}_\alpha$ 为粒子宏观流体速度，
+其中，$\vec{u}_\alpha$ 为粒子宏观流体速度，
 \begin{equation}
 v_{t, \alpha} = \sqrt{\frac{2 T_\alpha}{m_\alpha}}
 \end{equation}
@@ -105,8 +105,8 @@ v_{t, \alpha} = \sqrt{\frac{2 T_\alpha}{m_\alpha}}
 
 傅里叶变换及其逆变换
 \begin{subequations}\begin{align}
-\FourierT[f](\omega) &= \int_{-\infty}^{+\infty} f(t) \eu^{- \im \omega t} \, \dif t \\
-\FourierTinv[f](t) &= \int_{-\infty}^{+\infty} f(\omega) \eu^{\im \omega t} \, \dif \omega
+\FourierT[f](\omega) &= \int_{-\infty}^{+\infty} f(t) \eu^{- \im \omega t} \d t \\
+\FourierTinv[f](t) &= \int_{-\infty}^{+\infty} f(\omega) \eu^{\im \omega t} \d \omega
 \end{align}\end{subequations}
 
 \begin{subequations}\begin{align}
@@ -116,8 +116,8 @@ v_{t, \alpha} = \sqrt{\frac{2 T_\alpha}{m_\alpha}}
 \FourierTinv[f(\omega - \omega_0)] &= \eu^{\im \omega_0 t} \FourierTinv[f](t) \\
 \FourierT[f(t / \lambda)] &= \lambda \FourierT[f](\lambda \omega) \\
 \FourierTinv[f(\omega / \lambda)] &= \lambda \FourierTinv[f](\lambda t) \\
-\FourierT\left[\DerivN{f}{t}{m}\right] &= \left(\im\omega\right)^m \FourierT[f](\omega) \\
-\FourierTinv\left[\DerivN{f}{\omega}{m}\right] &= \left(-\im t\right)^m \FourierTinv[f](t) \\
+\FourierT\left[\odv[n]{f}{t}{m}\right] &= \left(\im\omega\right)^m \FourierT[f](\omega) \\
+\FourierTinv\left[\odv[n]{f}{\omega}{m}\right] &= \left(-\im t\right)^m \FourierTinv[f](t) \\
 \FourierT[f * g] &= \FourierT[f] \FourierT[g] \\
 \FourierTinv[f * g] &= \FourierTinv[f] \FourierTinv[g]
 \end{align}\end{subequations}
@@ -133,7 +133,7 @@ f(t) &\LaplaceTs \int_0^{+\infty} f(t) \eu^{- s t} \d t \\
 
 平面单色波：
 \begin{equation}
-f(t,\vector{r}) = f_A \eu^{\im\ab(\vector{k}\cdot\vector{r} - \omega t)}
+f(t,\vec{r}) = f_A \eu^{\im\ab(\vec{k}\cdot\vec{r} - \omega t)}
 \end{equation}
 定义波的相速度为
 \begin{equation}
@@ -146,7 +146,7 @@ v_g = \odv{\omega}{k}
 
 取频率 $\omega$ 为复数，则可以表示波的不稳定/阻尼：
 \begin{equation}
-f(t,\vector{r}) = f_A \eu^{\Im(\omega) t} \eu^{\im\ab[\vector{k}\cdot\vector{r} - \Re(\omega)] t)}
+f(t,\vec{r}) = f_A \eu^{\Im(\omega) t} \eu^{\im\ab[\vec{k}\cdot\vec{r} - \Re(\omega)] t)}
 \end{equation}
 当 $\Im(\omega)>0$ 时，波会增长；当 $\Im(\omega)<0$ 时，波会阻尼。
 
@@ -156,141 +156,141 @@ f(t,\vector{r}) = f_A \eu^{\Im(\omega) t} \eu^{\im\ab[\vector{k}\cdot\vector{r} 
 
 电磁场的能量传播由坡印廷（Poynting）定理描述：
 \begin{subequations}\begin{gather}
-\pdv{w}{t} + \dive{\vector{S}} + \vector{E} \cdot \vector{J} = 0 \\
-w = \frac{\varepsilon_0}{2} \vector{E}^2 + \frac{1}{2\mu_0} \vector{B}^2 \\
-\vector{S} = \frac{1}{\mu_0} \vector{E} \times \vector{B}
+\pdv{w}{t} + \dive{\vec{S}} + \vec{E} \cdot \vec{J} = 0 \\
+w = \frac{\varepsilon_0}{2} \vec{E}^2 + \frac{1}{2\mu_0} \vec{B}^2 \\
+\vec{S} = \frac{1}{\mu_0} \vec{E} \times \vec{B}
 \end{gather}\end{subequations}
-其中，$w$ 为电磁场的能量密度，$\vector{S}$ 为电磁场的能流密度，也被称作坡印廷矢量。
+其中，$w$ 为电磁场的能量密度，$\vec{S}$ 为电磁场的能流密度，也被称作坡印廷矢量。
 
 在静态或准静态过程中，欧姆定律为
 \begin{equation}
-\vector{J} = \sigma \vector{E}
+\vec{J} = \sigma \vec{E}
 \end{equation}
 其中，$\sigma$ 为电导率。
 
 而一般情况下，有
 \begin{equation}\begin{aligned}
-\vector{J}(t, \vector{r}) &= \vector{\sigma}(t, \vector{r}) \cdot * \vector{E}(t, \vector{r}) \\
-\vector{J}(\omega, \vector{k}) &= \vector{\sigma}(\omega, \vector{k}) \cdot \vector{E}(\omega, \vector{k})
+\vec{J}(t, \vec{r}) &= \vec{\sigma}(t, \vec{r}) \cdot * \vec{E}(t, \vec{r}) \\
+\vec{J}(\omega, \vec{k}) &= \vec{\sigma}(\omega, \vec{k}) \cdot \vec{E}(\omega, \vec{k})
 \end{aligned}\end{equation}
 
 \subsection{波的能量传播方程}
 
 对于准平面单色波，扰动电场可写成
 \begin{equation}
-\vector{E}(t) = \frac{1}{2} \ab[
-    \vector{E}_0(t) \eu^{-\im\omega_0 t)}
-  + \vector{E}_0^*(t) \eu^{\im\omega_0 t)}
+\vec{E}(t) = \frac{1}{2} \ab[
+    \vec{E}_0(t) \eu^{-\im\omega_0 t)}
+  + \vec{E}_0^*(t) \eu^{\im\omega_0 t)}
 ]
 \end{equation}
-其中，$\omega_0$ 为实数，$\vector{E}^*$ 代表 $\vector{E}$ 的复共轭。$\vector{E}_0$ 代表扰动电场的慢变部分（$\pdv{\vector{E}_0}!{t}\ll\omega_0\vector{E}_0$）。
+其中，$\omega_0$ 为实数，$\vec{E}^*$ 代表 $\vec{E}$ 的复共轭。$\vec{E}_0$ 代表扰动电场的慢变部分（$\pdv{\vec{E}_0}!{t}\ll\omega_0\vec{E}_0$）。
 
 扰动电场的傅里叶变换为
 \begin{equation}\begin{aligned}
-\vector{E}(\omega) &= \int \vector{E}(t) \eu^{\im \omega t} \d t \\
+\vec{E}(\omega) &= \int \vec{E}(t) \eu^{\im \omega t} \d t \\
 &= \int \frac{1}{2} \ab[
-    \vector{E}_0(t) \eu^{-\im\omega_0 t)}
-  + \vector{E}_0^*(t) \eu^{\im\omega_0 t)}
+    \vec{E}_0(t) \eu^{-\im\omega_0 t)}
+  + \vec{E}_0^*(t) \eu^{\im\omega_0 t)}
 ] \eu^{\im \omega t} \d t \\
 &= \frac{1}{2} \ab[
-    \vector{E}_0(\omega - \omega_0)
-  + \vector{E}_0^*(\omega + \omega_0)
+    \vec{E}_0(\omega - \omega_0)
+  + \vec{E}_0^*(\omega + \omega_0)
 ]
 \end{aligned}\end{equation}
 
 则频域里的扰动电流为
 \begin{equation}\begin{aligned}
-\vector{J}(\omega) &= \vector{\sigma}(\omega) \cdot \vector{E}(\omega) \\
-&= \frac{1}{2} \vector{\sigma}(\omega) \cdot \ab[
-    \vector{E}_0(\omega - \omega_0)
-  + \vector{E}_0^*(\omega + \omega_0)
+\vec{J}(\omega) &= \vec{\sigma}(\omega) \cdot \vec{E}(\omega) \\
+&= \frac{1}{2} \vec{\sigma}(\omega) \cdot \ab[
+    \vec{E}_0(\omega - \omega_0)
+  + \vec{E}_0^*(\omega + \omega_0)
 ]
 \end{aligned}\end{equation}
 
 逆傅里叶变换后，得
 \begin{equation}\begin{aligned}
-\vector{J}(t) &= \frac{1}{2\pi} \int \vector{J}(\omega) \eu^{-\im\omega t} \d\omega \\
+\vec{J}(t) &= \frac{1}{2\pi} \int \vec{J}(\omega) \eu^{-\im\omega t} \d\omega \\
 &= \frac{1}{2} \ab[
     \ab(
-        \eval{\vector{\sigma}}_{\omega_0}
-        + \eval{\pdv{\vector{\sigma}}{\omega}}_{\omega_0} \im \pdv{}{t}
-    ) \cdot \vector{E}_0(t) \eu^{-\im\omega_0 t)}
+        \eval{\vec{\sigma}}_{\omega_0}
+        + \eval{\pdv{\vec{\sigma}}{\omega}}_{\omega_0} \im \pdv{}{t}
+    ) \cdot \vec{E}_0(t) \eu^{-\im\omega_0 t)}
   + \ab(
-        \eval{\vector{\sigma}}_{-\omega_0}
-        + \eval{\pdv{\vector{\sigma}}{\omega}}_{-\omega_0} \im \pdv{}{t}
-    ) \cdot \vector{E}_0^*(t) \eu^{\im\omega_0 t)}
+        \eval{\vec{\sigma}}_{-\omega_0}
+        + \eval{\pdv{\vec{\sigma}}{\omega}}_{-\omega_0} \im \pdv{}{t}
+    ) \cdot \vec{E}_0^*(t) \eu^{\im\omega_0 t)}
 ] \\
 &= \frac{1}{2} \ab[
-    \eval{\vector{\sigma}}_{\omega_0 + \im \pdv{}!{t}}
-    \cdot \vector{E}_0(t) \eu^{-\im\omega_0 t)}
-  + \eval{\vector{\sigma}}_{-\omega_0 + \im \pdv{}!{t}}
-    \cdot \vector{E}_0^*(t) \eu^{\im\omega_0 t)}
+    \eval{\vec{\sigma}}_{\omega_0 + \im \pdv{}!{t}}
+    \cdot \vec{E}_0(t) \eu^{-\im\omega_0 t)}
+  + \eval{\vec{\sigma}}_{-\omega_0 + \im \pdv{}!{t}}
+    \cdot \vec{E}_0^*(t) \eu^{\im\omega_0 t)}
 ]
 \end{aligned}\end{equation}
-考虑 $\vector{J}(t)$ 为实数，则
+考虑 $\vec{J}(t)$ 为实数，则
 \begin{subequations}\begin{align}
-\eval{\vector{\sigma}^*}_{\omega_0 + \im \pdv{}!{t}} &
-= \eval{\vector{\sigma}}_{-\omega_0 + \im \pdv{}!{t}} \\
-\eval{\vector{\sigma}^*}_{-\omega_0 + \im \pdv{}!{t}} &
-= \eval{\vector{\sigma}}_{\omega_0 + \im \pdv{}!{t}}
+\eval{\vec{\sigma}^*}_{\omega_0 + \im \pdv{}!{t}} &
+= \eval{\vec{\sigma}}_{-\omega_0 + \im \pdv{}!{t}} \\
+\eval{\vec{\sigma}^*}_{-\omega_0 + \im \pdv{}!{t}} &
+= \eval{\vec{\sigma}}_{\omega_0 + \im \pdv{}!{t}}
 \end{align}\end{subequations}
 
-在快变周期 $2\pi/\omega_0$ 内，对 $\vector{E}\cdot\vector{J}$ 作平均：
+在快变周期 $2\pi/\omega_0$ 内，对 $\vec{E}\cdot\vec{J}$ 作平均：
 \begin{equation}\begin{aligned}
-\ab<\vector{E}\cdot\vector{J}> &= \frac{1}{4} \ab[
-    \vector{E}_0(t) \cdot \vector{J}_0^*(t)
-    + \vector{E}_0^*(t) \cdot \vector{J}_0(t)
+\ab<\vec{E}\cdot\vec{J}> &= \frac{1}{4} \ab[
+    \vec{E}_0(t) \cdot \vec{J}_0^*(t)
+    + \vec{E}_0^*(t) \cdot \vec{J}_0(t)
 ] \\
-&= \frac{1}{4} \vector{E}_0^*(t) \cdot \peval{
-    \vector{\sigma} + \vector{\sigma}^\HT
-}_{\omega_0} \cdot \vector{E}_0
-+ \frac{\im}{8} \pdv*{\ab[\vector{E}_0^*(t) \cdot \eval{
-    \pdv{\ab(\vector{\sigma} - \vector{\sigma}^\HT)}{\omega}
-}_{\omega_0} \cdot \vector{E}_0]}{t} \\
-&= \frac{1}{2} \vector{E}_0^*(t) \cdot \eval{
-    \vector{\sigma}_\re
-}_{\omega_0} \cdot \vector{E}_0
-- \frac{1}{4} \pdv*{\ab[\vector{E}_0^*(t) \cdot \eval{
-    \pdv{\vector{\sigma}_\im}{\omega}
-}_{\omega_0} \cdot \vector{E}_0]}{t}
+&= \frac{1}{4} \vec{E}_0^*(t) \cdot \peval{
+    \vec{\sigma} + \vec{\sigma}^\HT
+}_{\omega_0} \cdot \vec{E}_0
++ \frac{\im}{8} \pdv*{\ab[\vec{E}_0^*(t) \cdot \eval{
+    \pdv{\ab(\vec{\sigma} - \vec{\sigma}^\HT)}{\omega}
+}_{\omega_0} \cdot \vec{E}_0]}{t} \\
+&= \frac{1}{2} \vec{E}_0^*(t) \cdot \eval{
+    \vec{\sigma}_\re
+}_{\omega_0} \cdot \vec{E}_0
+- \frac{1}{4} \pdv*{\ab[\vec{E}_0^*(t) \cdot \eval{
+    \pdv{\vec{\sigma}_\im}{\omega}
+}_{\omega_0} \cdot \vec{E}_0]}{t}
 \end{aligned}\end{equation}
 其中，$\HT$ 代表厄米共轭（转置 $\T$ + 复共轭），
-$\vector{\sigma}_\re=\ab(\vector{\sigma}+\vector{\sigma}^\HT)/2$代表厄米部分，
-$\vector{\sigma}_\im=\ab(\vector{\sigma}-\vector{\sigma}^\HT)/2\im$代表反厄米部分。
+$\vec{\sigma}_\re=\ab(\vec{\sigma}+\vec{\sigma}^\HT)/2$代表厄米部分，
+$\vec{\sigma}_\im=\ab(\vec{\sigma}-\vec{\sigma}^\HT)/2\im$代表反厄米部分。
 
 定义相对介电函数张量：
 \begin{subequations}\begin{align}
-\vector{\varepsilon} &= \vector{I} + \frac{\im}{2\varepsilon_0 \omega} \vector{\sigma} \\
-\vector{\varepsilon}_\re &= \vector{I} - \frac{\vector{\sigma}_\im}{2\varepsilon_0 \omega} \\
-\vector{\varepsilon}_\im &= \frac{\vector{\sigma}_\re}{2\varepsilon_0 \omega} \\
+\vec{\varepsilon} &= \vec{I} + \frac{\im}{2\varepsilon_0 \omega} \vec{\sigma} \\
+\vec{\varepsilon}_\re &= \vec{I} - \frac{\vec{\sigma}_\im}{2\varepsilon_0 \omega} \\
+\vec{\varepsilon}_\im &= \frac{\vec{\sigma}_\re}{2\varepsilon_0 \omega} \\
 \end{align}\end{subequations}
 
 则电磁波的能量传播方程可写作
 \begin{subequations}\begin{gather}
-\pdv{w_\re} + \dive{\vector{S}} + w_\im = 0 \\
-w_\re = \frac{1}{2\mu_0} \vector{B}_0^2
-    + \frac{\varepsilon_0}{2} \vector{E}_0^*
-        \cdot \eval{\pdv{\omega \vector{\varepsilon}_\re}{\omega}}_{\omega_0}
-        \cdot \vector{E}_0 \\
-w_\im = \varepsilon_0 \omega \vector{E}_0^*
-        \cdot \eval{\vector{\varepsilon}_\im}_{\omega_0}
-        \cdot \vector{E}_0 \\
-\vector{S} = \frac{1}{\mu_0} \ab(
-    \vector{E}_0 \times \vector{B}_0^*
-    + \vector{E}_0^* \times \vector{B}_0
+\pdv{w_\re} + \dive{\vec{S}} + w_\im = 0 \\
+w_\re = \frac{1}{2\mu_0} \vec{B}_0^2
+    + \frac{\varepsilon_0}{2} \vec{E}_0^*
+        \cdot \eval{\pdv{\omega \vec{\varepsilon}_\re}{\omega}}_{\omega_0}
+        \cdot \vec{E}_0 \\
+w_\im = \varepsilon_0 \omega \vec{E}_0^*
+        \cdot \eval{\vec{\varepsilon}_\im}_{\omega_0}
+        \cdot \vec{E}_0 \\
+\vec{S} = \frac{1}{\mu_0} \ab(
+    \vec{E}_0 \times \vec{B}_0^*
+    + \vec{E}_0^* \times \vec{B}_0
 )
 \end{gather}\end{subequations}
 
 若仅考虑静电波，则有
 \begin{subequations}\begin{gather}
 \pdv{w^\text{ES}_\re} + w^\text{ES}_\im = 0 \\
-w^\text{ES}_\re = \frac{\varepsilon_0}{2} \vector{E}_0^*
-        \cdot \eval{\pdv{\omega \vector{\varepsilon}_\re}{\omega}}_{\omega_0}
-        \cdot \vector{E}_0
+w^\text{ES}_\re = \frac{\varepsilon_0}{2} \vec{E}_0^*
+        \cdot \eval{\pdv{\omega \vec{\varepsilon}_\re}{\omega}}_{\omega_0}
+        \cdot \vec{E}_0
 = \frac{\varepsilon_0}{2} E_0^2 \eval{\pdv{\omega \varepsilon_\re}{\omega}}_{\omega_0 }\\
-w^\text{ES}_\im = \varepsilon_0 \omega \vector{E}_0^*
-        \cdot \eval{\vector{\varepsilon}_\im}_{\omega_0}
-        \cdot \vector{E}_0
+w^\text{ES}_\im = \varepsilon_0 \omega \vec{E}_0^*
+        \cdot \eval{\vec{\varepsilon}_\im}_{\omega_0}
+        \cdot \vec{E}_0
 = \varepsilon_0 E_0^2 \omega_0 \eval{\varepsilon_\im}_{\omega_0}
 \end{gather}\end{subequations}
 可以解得

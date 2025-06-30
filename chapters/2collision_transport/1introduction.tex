@@ -19,10 +19,10 @@
 带碰撞项的动理学方程：
 \begin{equation}
 \pdv{f_\alpha}{t}
-+ \vector{v} \cdot \pdv{f_\alpha}{\vector{r}}
++ \vec{v} \cdot \pdv{f_\alpha}{\vec{r}}
 + \frac{q_\alpha}{m_\alpha} \ab(
-    \vector{E} + \vector{v} \times \vector{B}
-) \cdot \pdv{f_\alpha}{\vector{v}}
+    \vec{E} + \vec{v} \times \vec{B}
+) \cdot \pdv{f_\alpha}{\vec{v}}
 = \ab(\pdv{f_\alpha}{t})_c
 \end{equation}
 
@@ -33,28 +33,28 @@
 
 对所有碰撞形式：
 \begin{subequations}\begin{align}
-\int C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
-\int m_\alpha\vector{v} C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
-\int \frac{1}{2} m_\alpha v^2 C_{\alpha\alpha} \d^3\vector{v} &= 0 \\
-\int m_\alpha\vector{v} C_{\alpha\beta} \d^3\vector{v}
-+ \int m_\beta\vector{v} C_{\beta\alpha} \d^3\vector{v}&= 0
+\int C_{\alpha\alpha} \d^3\vec{v} &= 0 \\
+\int m_\alpha\vec{v} C_{\alpha\alpha} \d^3\vec{v} &= 0 \\
+\int \frac{1}{2} m_\alpha v^2 C_{\alpha\alpha} \d^3\vec{v} &= 0 \\
+\int m_\alpha\vec{v} C_{\alpha\beta} \d^3\vec{v}
++ \int m_\beta\vec{v} C_{\beta\alpha} \d^3\vec{v}&= 0
 \end{align}\end{subequations}
 对于弹性碰撞
 \begin{subequations}\begin{align}
-\int C_{\alpha\beta} \d^3\vector{v} &= 0\\
-\int \frac{1}{2} m_\alpha v^2 C_{\alpha\beta} \d^3\vector{v}
-+ \int \frac{1}{2} m_\beta v^2 C_{\beta\alpha} \d^3\vector{v} &= 0
+\int C_{\alpha\beta} \d^3\vec{v} &= 0\\
+\int \frac{1}{2} m_\alpha v^2 C_{\alpha\beta} \d^3\vec{v}
++ \int \frac{1}{2} m_\beta v^2 C_{\beta\alpha} \d^3\vec{v} &= 0
 \end{align}\end{subequations}
 定义
 \begin{equation}
-\vector{R}_{\alpha\beta} = \int m_\alpha\vector{v} C_{\alpha\beta} \d^3\vector{v}
+\vec{R}_{\alpha\beta} = \int m_\alpha\vec{v} C_{\alpha\beta} \d^3\vec{v}
 \end{equation}
 
 \subsection{自扩散的描述}
 
 试探粒子：
 \begin{equation}
-\hat{f}_\alpha(t=0,\vector{v})=\delta(\vector{v}-\vector{u}_\alpha)
+\hat{f}_\alpha(t=0,\vec{v})=\delta(\vec{v}-\vec{u}_\alpha)
 \end{equation}
 
 一阶矩，平行于入射方向，动量慢化
@@ -78,31 +78,31 @@
 
 摩擦力
 \begin{equation}
-\vector{F}_{r,\alpha} = \int m_\alpha \vector{v} \ab(\pdv{f_\alpha}{t})_c \d^3\vector{v}
+\vec{F}_{r,\alpha} = \int m_\alpha \vec{v} \ab(\pdv{f_\alpha}{t})_c \d^3\vec{v}
 \end{equation}
 
 碰撞交换的热量
 \begin{equation}
-W_{c,\alpha} = \int \frac{1}{2} m_\alpha \vector{w}_\alpha^2 \left( \pDeriv{f_\alpha}{t} \right)_c \, \d^3 \vector{v}
+W_{c,\alpha} = \int \frac{1}{2} m_\alpha \vec{w}_\alpha^2 \left( \pdv{f_\alpha}{t} \right)_c \, \d^3 \vec{v}
 \end{equation}
 
 \paragraph{扩散过程}
 通量流
 \begin{equation}
-\vector{\Gamma}_\alpha = - D_\alpha \grad{n_\alpha}
+\vec{\Gamma}_\alpha = - D_\alpha \grad{n_\alpha}
 \end{equation}
 扩散系数
 
 \paragraph{粘滞过程}
 动量流
 \begin{equation}
-\vector{\Pi}_\alpha = ...
+\vec{\Pi}_\alpha = ...
 \end{equation}
 剪切粘滞系数、体粘滞系数
 
 \paragraph{热传导过程}
 热流
 \begin{equation}
-\vector{q}_\alpha = - \kappa_\alpha \grad{T_\alpha}
+\vec{q}_\alpha = - \kappa_\alpha \grad{T_\alpha}
 \end{equation}
 热传导系数

@@ -1,59 +1,46 @@
 % 数学常量
-\newcommand{\dif}{\mathop{}\!\mathrm{d}}
 \newcommand{\eu}{\mathrm{e}}
+
+% 实部虚部
 \newcommand{\re}{\mathrm{r}}
 \newcommand{\im}{\mathrm{i}}
+\newcommand{\RE}{\Resymbol}
+\newcommand{\IM}{\Imsymbol}
 
 % 向量
-\renewcommand{\vector}[1]{\bm{#1}}
+\renewcommand{\vec}[1]{\bm{#1}}
+
+% 微分
+\letdif{\var}{delta}
+\letdif{\Var}{Delta}
 
 % 矩阵
 \newcommand{\T}{\mathsf{T}}
 \newcommand{\HT}{\mathsf{H}}
 
-% 导数
-\newcommand{\Deriv}[2]{\frac{\dif {#1}}{\dif {#2}}}
-\newcommand{\deriv}[2]{\dif_{#2} {#1}}
-\newcommand{\DerivS}[2]{\frac{\dif^2 {#1}}{\dif {#2}^2}}
-\newcommand{\DerivN}[3]{\frac{\dif^{#3} {#1}}{\dif {#2}^{#3}}}
-\newcommand{\pDeriv}[2]{\frac{\partial {#1}}{\partial {#2}}}
-\newcommand{\ppDeriv}[3]{\frac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
-\newcommand{\pDerivS}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
-\newcommand{\pDerivN}[3]{\frac{\partial^{#3} {#1}}{\partial {#2}^{#3}}}
-\newcommand{\pderiv}[2]{\partial_{#2} {#1}}
-
-\newcommand{\dDerivd}[2]{\dfrac{\dif {#1}}{\dif {#2}}}
-\newcommand{\DerivSd}[2]{\dfrac{\dif^2 {#1}}{\dif {#2}^2}}
-\newcommand{\DerivNd}[3]{\dfrac{\dif^{#3} {#1}}{\dif {#2}^{#3}}}
-\newcommand{\pDerivd}[2]{\dfrac{\partial {#1}}{\partial {#2}}}
-\newcommand{\ppDerivd}[3]{\dfrac{\partial^2 {#1}}{\partial {#2} \partial {#3}}}
-\newcommand{\pDerivSd}[2]{\dfrac{\partial^2 {#1}}{\partial {#2}^2}}
-\newcommand{\pDerivNd}[3]{\dfrac{\partial^{#3} {#1}}{\partial {#2}^{#3}}}
-
 % nabla 算子
-\newcommand{\grad}[1]{\nabla {#1}}
-\newcommand{\dive}[1]{\nabla \cdot {#1}}
-\newcommand{\curl}[1]{\nabla \times {#1}}
-\newcommand{\laplace}[1]{\nabla^2 {#1}}
+\letdif{\nabla}{nabla}
+\newcommand{\nablasymbol}{\nablanondif}
+\newcommand{\grad}{\vec{\nabla} }
+\newcommand{\dive}{\vec{\nabla} \cdot }
+\newcommand{\curl}{\vec{\nabla} \times }
+\newcommand{\laplacian}{\nabla^2 }
 
 % MHD
-\newcommand{\ToroidalFlux}{\psi}
-\newcommand{\PoloidalFlux}{\chi}
+\newcommand{\TorFlux}{\psi}
+\newcommand{\PolFlux}{\chi}
 
-% 曲线坐标系
+% 曲线坐标系相关
+\newcommand{\BasisVec}{\vec{e}}
 \newcommand{\Jacobian}{\mathcal{J}}
 \newcommand{\Metric}{\mathcal{G}}
-\newcommand{\covariant}[2]{{#1}_{#2}}
-\newcommand{\contravariant}[2]{{#1}^{#2}}
-\newcommand{\BasisVec}[1]{\vector{e}_{#1}}
-\newcommand{\coBasis}[1]{\covariant{\vector{e}}{#1}}
-\newcommand{\contraBasis}[1]{\contravariant{\vector{e}}{#1}}
-\newcommand{\coMetric}[1]{\covariant{\Metric}{#1}}
-\newcommand{\contraMetric}[1]{\contravariant{\Metric}{#1}}
 
 % 傅里叶（Fourier）变换
 \newcommand{\FourierT}{\mathcal{F}}
 \newcommand{\FourierTinv}{\mathcal{F}^{-1}}
+\newcommand{\FourierTs}{\xrightleftharpoons[\FourierTinv]{\FourierT}}
+
+% 拉普拉斯（laplace）变换
 \newcommand{\LaplaceT}{\mathcal{L}}
 \newcommand{\LaplaceTinv}{\mathcal{L}^{-1}}
 \newcommand{\LaplaceTs}{\xrightleftharpoons[\LaplaceTinv]{\LaplaceT}}

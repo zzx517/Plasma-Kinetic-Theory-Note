@@ -3,10 +3,10 @@
 
 平衡量：
 \begin{subequations}\begin{align}
-\vector{E}_0 &= \vector{0} \\
-\vector{B}_0 &= B_0 \vector{e}_z \\
+\vec{E}_0 &= \vec{0} \\
+\vec{B}_0 &= B_0 \vec{e}_z \\
 n_{\alpha,0} &= n_{\alpha,0}(x) \\
-\vector{u}_{\alpha,0} &= u_{\alpha,0} \vector{e}_y
+\vec{u}_{\alpha,0} &= u_{\alpha,0} \vec{e}_y
 \end{align}\end{subequations}
 
 \section{流体描述概述}
@@ -16,34 +16,34 @@ n_{\alpha,0} &= n_{\alpha,0}(x) \\
 运动方程
 \begin{equation}
 m_\alpha n_{\alpha,0} \ab(
-    \pdv{\vector{u}_{\alpha,0}}
-    + \vector{u}_{\alpha,0} \cdot \grad{\vector{u}_{\alpha,0}}
+    \pdv{\vec{u}_{\alpha,0}}
+    + \vec{u}_{\alpha,0} \cdot \grad{\vec{u}_{\alpha,0}}
 )
-= q_\alpha n_{\alpha,0} \vector{u}_{\alpha,0} \times \vector{B}_0
+= q_\alpha n_{\alpha,0} \vec{u}_{\alpha,0} \times \vec{B}_0
 - \grad{p_{\alpha,0}}
 \end{equation}
 
 平衡态：$\pdv{}{t} = 0$，则
 \begin{equation}
-q_\alpha n_{\alpha,0} \vector{u}_{\alpha,0} \times \vector{B}_0 = \grad{p_{\alpha,0}}
+q_\alpha n_{\alpha,0} \vec{u}_{\alpha,0} \times \vec{B}_0 = \grad{p_{\alpha,0}}
 \end{equation}
 
 \begin{equation}
-\vector{u}_{\alpha,0,\perp} = \frac{
-    \grad{p_{\alpha,0}} \times \vector{B}_0
+\vec{u}_{\alpha,0,\perp} = \frac{
+    \grad{p_{\alpha,0}} \times \vec{B}_0
 }{q_\alpha n_{\alpha,0} B_0^2}
 \end{equation}
 
 等温：$p_{\alpha,0} = T_\alpha n_{\alpha,0}$，则
 \begin{equation}
-\vector{v}_{D,\alpha} = \frac{T_\alpha}{q_\alpha B_0^2}
-\frac{\grad{n_{\alpha,0}}}{n_{\alpha,0}} \times \vector{B}_0
+\vec{v}_{D,\alpha} = \frac{T_\alpha}{q_\alpha B_0^2}
+\frac{\grad{n_{\alpha,0}}}{n_{\alpha,0}} \times \vec{B}_0
 \end{equation}
 
 \subsection{静电漂移波}
 
 \begin{itemize}
-    \item 波矢 $\vector{k} = k_\perp \vector{e}_y + k_\parallel \vector{e}_z$。
+    \item 波矢 $\vec{k} = k_\perp \vec{e}_y + k_\parallel \vec{e}_z$。
     \item 低频 $\omega \ll \omega_{c,i}$、$v_{t,i} \ll \omega / k_\parallel \ll v_{t,e}$。
     \item 冷离子 $T_i \ll T_e$。
     \item 局域近似 $k \gg \grad{n_{\alpha,0}}/n_{\alpha,0}$，可以作局域傅里叶/拉普拉斯变换。
@@ -93,7 +93,7 @@ q_\alpha n_{\alpha,0} \vector{u}_{\alpha,0} \times \vector{B}_0 = \grad{p_{\alph
 \subsection{电磁漂移波}
 
 \begin{itemize}
-    \item 波矢 $\vector{k} = k_\perp \vector{e}_y$。
+    \item 波矢 $\vec{k} = k_\perp \vec{e}_y$。
     \item 频率 $\omega_{c,i} \ll \omega \ll \omega_{c,e}$、$v_{t,i} \ll \omega / k_\parallel \ll v_{t,e}$。
     % \item 冷离子 $T_i \ll T_e$。
     \item 局域近似 $k \gg \grad{n_{\alpha,0}}/n_{\alpha,0}$，可以作局域傅里叶/拉普拉斯变换。

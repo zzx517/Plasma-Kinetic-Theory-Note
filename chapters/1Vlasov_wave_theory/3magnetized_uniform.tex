@@ -2,20 +2,20 @@
 \chapter{均匀外磁场、空间均匀的线性波动问题}
 
 平衡量：
-$\vector{E}_0 = \vector{0}$、
-$\vector{B}_0 = \text{const}$、
-$f_{\alpha,0} = f_{\alpha,0}(\vector{v})$。
+$\vec{E}_0 = \vec{0}$、
+$\vec{B}_0 = \text{const}$、
+$f_{\alpha,0} = f_{\alpha,0}(\vec{v})$。
 
 线性化弗拉索夫方程：
 \begin{equation}
 \ab[
     \pdv{}{t}
-    + \vector{v} \cdot \pdv{}{\vector{r}}
-    + \frac{q_\alpha}{m_\alpha} \ab(\vector{v} \times \vector{B}_0)
+    + \vec{v} \cdot \pdv{}{\vec{r}}
+    + \frac{q_\alpha}{m_\alpha} \ab(\vec{v} \times \vec{B}_0)
 ] f_{\alpha,1}
 + \frac{q_\alpha}{m_\alpha}
-\ab(\vector{E}_1 + \vector{v} \times \vector{B}_1)
-\cdot \pdv{f_{\alpha, 0}}{\vector{v}}
+\ab(\vec{E}_1 + \vec{v} \times \vec{B}_1)
+\cdot \pdv{f_{\alpha, 0}}{\vec{v}}
 = 0
 \end{equation}
 
@@ -28,45 +28,45 @@ $f_{\alpha,0} = f_{\alpha,0}(\vector{v})$。
 欧拉坐标：
 \begin{equation}\begin{cases}
 t & \Rightarrow \text{时间} \\
-\vector{r} & \Rightarrow \text{位置空间} \\
-\vector{v} & \Rightarrow \text{速度空间}
+\vec{r} & \Rightarrow \text{位置空间} \\
+\vec{v} & \Rightarrow \text{速度空间}
 \end{cases}\end{equation}
 
 拉格朗日坐标：
 \begin{equation}\begin{cases}
 t & \Rightarrow \text{时间} \\
-\vector{r}_0 & \Rightarrow \text{粒子的初始位置} \\
-\vector{v}_0 & \Rightarrow \text{粒子的初始速度}
+\vec{r}_0 & \Rightarrow \text{粒子的初始位置} \\
+\vec{v}_0 & \Rightarrow \text{粒子的初始速度}
 \end{cases}\end{equation}
 
 存在相互转换
 \begin{equation}\begin{aligned}
-\vector{r} &= \vector{r}(t, \vector{r}_0, \vector{v}_0) \\
-\vector{v} &= \mdv{\vector{r}}{t}(t, \vector{r}_0, \vector{v}_0)
+\vec{r} &= \vec{r}(t, \vec{r}_0, \vec{v}_0) \\
+\vec{v} &= \mdv{\vec{r}}{t}(t, \vec{r}_0, \vec{v}_0)
 \end{aligned}\end{equation}
 其中，$\mdv{}{t}$ 为随流导数。
 
 \subsubsection{粒子的未扰动轨道}
 
 \begin{equation}
-\mdv[2]{\vector{r}}{t} = \frac{1}{m_\alpha} \vector{F}\ab(t, \vector{r}, \mdv{\vector{r}}{t})
-= \frac{q_\alpha}{m_\alpha} \mdv{\vector{r}}{t} \times \vector{B}_0
+\mdv[2]{\vec{r}}{t} = \frac{1}{m_\alpha} \vec{F}\ab(t, \vec{r}, \mdv{\vec{r}}{t})
+= \frac{q_\alpha}{m_\alpha} \mdv{\vec{r}}{t} \times \vec{B}_0
 \end{equation}
 
 \subsubsection{}
 
 \begin{equation}
 \mdv{f_\alpha}{t} = \pdv{f_\alpha}{t}
-+ \vector{v} \cdot \pdv{f_\alpha}{\vector{r}}
-+ \frac{q_\alpha}{m_\alpha} \ab(\vector{E} + \vector{v} \textbf{}) \cdot \pdv{f_\alpha}{\vector{r}}
++ \vec{v} \cdot \pdv{f_\alpha}{\vec{r}}
++ \frac{q_\alpha}{m_\alpha} \ab(\vec{E} + \vec{v} \textbf{}) \cdot \pdv{f_\alpha}{\vec{r}}
 = 0
 \end{equation}
 线性化
 \begin{equation}
 \mdv{f_\alpha}{t}
 + \frac{q_\alpha}{m_\alpha}
-\ab(\vector{E}_1 + \vector{v} \times \vector{B}_1)
-\cdot \pdv{f_{\alpha, 0}}{\vector{v}}
+\ab(\vec{E}_1 + \vec{v} \times \vec{B}_1)
+\cdot \pdv{f_{\alpha, 0}}{\vec{v}}
 = 0
 \end{equation}
 
@@ -74,70 +74,70 @@ t & \Rightarrow \text{时间} \\
 
 将拉格朗日坐标下的线性化弗拉索夫方程对时间 $t$ 积分：
 \begin{equation}
-f_{\alpha,1}(t, \vector{r}_0, \vector{v}_0)
-= f_{\alpha,1}(t=0, \vector{r}_0, \vector{v}_0)
+f_{\alpha,1}(t, \vec{r}_0, \vec{v}_0)
+= f_{\alpha,1}(t=0, \vec{r}_0, \vec{v}_0)
 - \frac{q_\alpha}{m_\alpha} \int_0^t
-    \ab(\vector{E}_1 + \vector{v} \times \vector{B}_1)
-    \cdot \pdv{f_{\alpha, 0}}{\vector{v}}
+    \ab(\vec{E}_1 + \vec{v} \times \vec{B}_1)
+    \cdot \pdv{f_{\alpha, 0}}{\vec{v}}
 \d\tau
 \end{equation}
-再将拉格朗日坐标 $(t, \vector{r}_0, \vector{v}_0)$ 变换到欧拉坐标 $(t, \vector{r}, \vector{v})$，就解出了线性化弗拉索夫方程。对于本征值问题，初值 $f_{\alpha,1}(t=0, \vector{r}_0, \vector{v}_0) = 0$。
+再将拉格朗日坐标 $(t, \vec{r}_0, \vec{v}_0)$ 变换到欧拉坐标 $(t, \vec{r}, \vec{v})$，就解出了线性化弗拉索夫方程。对于本征值问题，初值 $f_{\alpha,1}(t=0, \vec{r}_0, \vec{v}_0) = 0$。
 
 \subsection{电导张量与电磁张量}
 
 波动方程
 \begin{equation}
-\laplace{\vector{E}_1} - \grad{\dive{\vector{E}_1}}
-= - \frac{1}{c^2} \pdv[2]{\vector{E}_1}{t} - \mu_0 \pdv{\vector{J}_1}{t}
+\laplacian{\vec{E}_1} - \grad{\dive{\vec{E}_1}}
+= - \frac{1}{c^2} \pdv[2]{\vec{E}_1}{t} - \mu_0 \pdv{\vec{J}_1}{t}
 \end{equation}
 变换
 \begin{equation}
-k^2 \vector{E}_k - \vector{k}\vector{k} \cdot \vector{E}_k
-= \frac{\omega^2}{c^2} \vector{E}_k + \im \mu_0 \omega \vector{J}_k
+k^2 \vec{E}_k - \vec{k}\vec{k} \cdot \vec{E}_k
+= \frac{\omega^2}{c^2} \vec{E}_k + \im \mu_0 \omega \vec{J}_k
 \end{equation}
 
 电导张量
 \begin{equation}
-\vector{J}_k = \vector{\sigma}(\omega, \vector{k}) \cdot \vector{E}_k
+\vec{J}_k = \vec{\sigma}(\omega, \vec{k}) \cdot \vec{E}_k
 \end{equation}
 
 介电张量
 \begin{equation}
-\vector{\varepsilon}(\omega, \vector{k})
-= \varepsilon_0 \vector{I}
-+ \frac{\im}{\omega} \vector{\sigma}(\omega, \vector{k})
+\vec{\varepsilon}(\omega, \vec{k})
+= \varepsilon_0 \vec{I}
++ \frac{\im}{\omega} \vec{\sigma}(\omega, \vec{k})
 \end{equation}
 
 电磁张量
 \begin{equation}
-\vector{D}(\omega, \vector{k})
-= \vector{k}\vector{k} - k^2 \vector{I}
-+ \omega^2 \mu_0 \varepsilon(\omega, \vector{k})
+\vec{D}(\omega, \vec{k})
+= \vec{k}\vec{k} - k^2 \vec{I}
++ \omega^2 \mu_0 \varepsilon(\omega, \vec{k})
 \end{equation}
 
 色散方程
 \begin{equation}
-\det\ab(\vector{D}) = 0
+\det\ab(\vec{D}) = 0
 \end{equation}
 
 扰动电流
 \begin{equation}
-\vector{J}_{\alpha,k} = q_\alpha n_{\alpha,0}
-\int \vector{v} f_{\alpha,k} \d^3\vector{v}
+\vec{J}_{\alpha,k} = q_\alpha n_{\alpha,0}
+\int \vec{v} f_{\alpha,k} \d^3\vec{v}
 \end{equation}
 得
 \begin{equation}
-\vector{\sigma}_\alpha = - \varepsilon_0 \frac{\omega_{p,\alpha}^2}{\omega}
-\int \d^3\vector{v} \int_0^{t} \d\tau
-\vector{v} \pdv{\hat{f}_{\alpha,0}}{\dot{\vector{\xi}}} \cdot \ab[
-    \ab(\omega - \vector{k}\cdot\dot{\vector{\xi}}) \vector{I}
-    + \vector{k} \dot{\vector{\xi}}
-] \eu^{\im \ab(\vector{k} \cdot \vector{\xi} - \omega \tau)}
+\vec{\sigma}_\alpha = - \varepsilon_0 \frac{\omega_{p,\alpha}^2}{\omega}
+\int \d^3\vec{v} \int_0^{t} \d\tau
+\vec{v} \pdv{\hat{f}_{\alpha,0}}{\dot{\vec{\xi}}} \cdot \ab[
+    \ab(\omega - \vec{k}\cdot\dot{\vec{\xi}}) \vec{I}
+    + \vec{k} \dot{\vec{\xi}}
+] \eu^{\im \ab(\vec{k} \cdot \vec{\xi} - \omega \tau)}
 \end{equation}
 
 极化率张量
 \begin{equation}
-\vector{\chi}_\alpha = \frac{\im}{\omega \varepsilon_0} \vector{\sigma}
+\vec{\chi}_\alpha = \frac{\im}{\omega \varepsilon_0} \vec{\sigma}
 \end{equation}
 
 \subsubsection{电磁张量表达式}
@@ -155,32 +155,32 @@ k^2 \vector{E}_k - \vector{k}\vector{k} \cdot \vector{E}_k
 
 粒子的未扰动轨道
 \begin{equation}
-\vector{r} = \vector{r}_g + \vector{r}_c
+\vec{r} = \vec{r}_g + \vec{r}_c
 \end{equation}
 
 拉莫回旋运动速度
 \begin{equation}
-\vector{v}_c = - \omega_c \hat{\vector{b}} \times \vector{r}_c
+\vec{v}_c = - \omega_c \hat{\vec{b}} \times \vec{r}_c
 \end{equation}
 则
 \begin{equation}
-\vector{r}_c = - \frac{\vector{v}_c \times \hat{\vector{b}}}{\omega_c}
+\vec{r}_c = - \frac{\vec{v}_c \times \hat{\vec{b}}}{\omega_c}
 \end{equation}
 则
 \begin{equation}
-\vector{r}_g = \vector{r} + \frac{\vector{v}_c \times \hat{\vector{b}}}{\omega_c}
+\vec{r}_g = \vec{r} + \frac{\vec{v}_c \times \hat{\vec{b}}}{\omega_c}
 \end{equation}
 
 
 \subsubsection{准静电与准电磁模近似及其条件}
 
-波矢 $\vector{k} = k \hat{\vector{k}}$。
-扰动电场 $\vector{E}_1 = E_l \vector{e}_l + E_t \vector{e}_k$。
+波矢 $\vec{k} = k \hat{\vec{k}}$。
+扰动电场 $\vec{E}_1 = E_l \vec{e}_l + E_t \vec{e}_k$。
 
 电磁张量
 \begin{equation}
-\vector{D} = \frac{k^2 c^2}{\omega^2} \ab(\hat{\vector{k}}\hat{\vector{k}}
-- \vector{I}) + \vector{\varepsilon}
+\vec{D} = \frac{k^2 c^2}{\omega^2} \ab(\hat{\vec{k}}\hat{\vec{k}}
+- \vec{I}) + \vec{\varepsilon}
 = \begin{pmatrix}
     \varepsilon_{ll} & \varepsilon_{lt} \\
     \varepsilon_{tl} & \varepsilon_{tt} - k^2 c^2 / \omega^2

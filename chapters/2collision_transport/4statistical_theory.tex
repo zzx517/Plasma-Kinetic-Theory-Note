@@ -5,14 +5,14 @@
 
 \subsection{\texorpdfstring{$\Gamma$}{Gamma} 空间}
 
-由 $N$ 个全同粒子组成的体系，其状态可以由 $3N$ 个位置 $\vector{r}_i$ 和 $3N$ 个速度 $\vector{v}_i$ 确定。
+由 $N$ 个全同粒子组成的体系，其状态可以由 $3N$ 个位置 $\vec{r}_i$ 和 $3N$ 个速度 $\vec{v}_i$ 确定。
 这 $6N$ 维相空间被称为 $\Gamma$ 空间。$\Gamma$ 空间中每一个点表示这个系统的一个状态。此系统在 $\Gamma$ 空间中的轨迹满足力学规律：
 \begin{equation}
-\odv{\vector{r}_i}{t} = \vector{v}_i,
-\quad \odv{\vector{v}_i}{t} = \frac{\vector{F}_i}{m},
+\odv{\vec{r}_i}{t} = \vec{v}_i,
+\quad \odv{\vec{v}_i}{t} = \frac{\vec{F}_i}{m},
 \quad i = 1, 2, \cdots, N
 \end{equation}
-其中，$\vector{F}_i$ 包括了粒子 $i$ 受到的所有力，包括系统内的相互作用和外力作用。
+其中，$\vec{F}_i$ 包括了粒子 $i$ 受到的所有力，包括系统内的相互作用和外力作用。
 
 \subsection{物理量的宏观测量}
 
@@ -23,11 +23,11 @@
 \subsection{刘维方程的建立}
 
 考虑 $N$ 个全同粒子组成的体系在 $6N$ 维相空间中的概率分布函数：
-$f_N(\{\vector{r}_i, \vector{v}_i\})$，则有刘维方程：
+$f_N(\{\vec{r}_i, \vec{v}_i\})$，则有刘维方程：
 \begin{equation}
 \pdv{f_N}{t} + \sum_{i=1}^N \ab(
-    \vector{v}_i \cdot \pdv{f_N}{\vector{r}_i}
-    + \frac{\vector{F}_i}{m} \cdot \pdv{f_N}{\vector{v}_i}
+    \vec{v}_i \cdot \pdv{f_N}{\vec{r}_i}
+    + \frac{\vec{F}_i}{m} \cdot \pdv{f_N}{\vec{v}_i}
 ) = 0
 \end{equation}
 
