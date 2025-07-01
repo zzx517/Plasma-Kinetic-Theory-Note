@@ -24,9 +24,13 @@
 
 % AMS 核心数学支持（数学公式、符号）
 \usepackage{amsmath}
+\allowdisplaybreaks[1]
 
 % 数学工具扩展（矩阵对齐、箭头注释等）
 \usepackage{mathtools}
+
+% 数学符号
+\usepackage{amssymb}
 
 % 字体加粗
 \usepackage{bm}
@@ -41,9 +45,10 @@
 % 物理常用符号补充
 \usepackage{physics2}
 \usephysicsmodule{ab}
+\usephysicsmodule{doubleprod}
 \usephysicsmodule{ab.legacy}
 \usephysicsmodule{op.legacy}
-\usephysicsmodule{doubleprod}
+\usephysicsmodule{qtext.legacy}
 
 % 微分符号
 \usepackage{fixdif}

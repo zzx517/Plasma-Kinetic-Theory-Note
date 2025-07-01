@@ -99,36 +99,6 @@ v_{t, \alpha} = \sqrt{\frac{2 T_\alpha}{m_\alpha}}
 
 波动问题求解方法
 
-\subsection{常用数学处理方法}
-
-\subsubsection{傅里叶（FourierT）变换}
-
-傅里叶变换及其逆变换
-\begin{subequations}\begin{align}
-\FourierT[f](\omega) &= \int_{-\infty}^{+\infty} f(t) \eu^{- \im \omega t} \d t \\
-\FourierTinv[f](t) &= \int_{-\infty}^{+\infty} f(\omega) \eu^{\im \omega t} \d \omega
-\end{align}\end{subequations}
-
-\begin{subequations}\begin{align}
-\FourierT[\FourierT[f]](t) &= f(-t) \\
-\FourierTinv[\FourierTinv[f]](t) &= f(-t) \\
-\FourierT[f(t - t_0)] &= \eu^{-\im \omega t_0} \FourierT[f](\omega) \\
-\FourierTinv[f(\omega - \omega_0)] &= \eu^{\im \omega_0 t} \FourierTinv[f](t) \\
-\FourierT[f(t / \lambda)] &= \lambda \FourierT[f](\lambda \omega) \\
-\FourierTinv[f(\omega / \lambda)] &= \lambda \FourierTinv[f](\lambda t) \\
-\FourierT\left[\odv[n]{f}{t}{m}\right] &= \left(\im\omega\right)^m \FourierT[f](\omega) \\
-\FourierTinv\left[\odv[n]{f}{\omega}{m}\right] &= \left(-\im t\right)^m \FourierTinv[f](t) \\
-\FourierT[f * g] &= \FourierT[f] \FourierT[g] \\
-\FourierTinv[f * g] &= \FourierTinv[f] \FourierTinv[g]
-\end{align}\end{subequations}
-
-\subsubsection{拉普拉斯（Laplace）变换}
-
-\begin{equation}\begin{aligned}
-f(t) &\LaplaceTs \int_0^{+\infty} f(t) \eu^{- s t} \d t \\
-- \frac{\im}{2\pi}\int_{c-\im\infty}^{c+\im\infty} F(s) \eu^{- s t} \d s &\LaplaceTs F(s)\\
-\end{aligned}\end{equation}
-
 \subsection{波动的表达方式}
 
 平面单色波：

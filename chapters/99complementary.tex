@@ -1,0 +1,61 @@
+
+\chapter{常用的数学变换}
+
+\section{傅里叶（Fourier）变换}
+
+傅里叶变换及其逆变换定义为：
+\begin{equation}
+\frac{1}{2\pi} \int_{-\infty}^{+\infty} F(\omega) \eu^{\im \omega t} \d \omega
+= f(t) \FourierTs F(\omega) =
+\int_{-\infty}^{+\infty} f(t) \eu^{- \im \omega t} \d t
+\end{equation}
+接下来，我们将使用对应的大写字母表示傅里叶变换的结果。
+
+\subsection{傅里叶变换的性质}
+\begin{subequations}\begin{alignat}{2}
+\qq*{线性性}  && a f(t) + b g(t) &\FourierTs a F(\omega) + b G(\omega) \\
+\qq*{对称性}  && F(\omega) &\FourierTs 2\pi f(-t) \\
+\qq*{奇偶性}  && f(-t) &\FourierTs F(-\omega) \\
+\qq*{虚实性}  && f^*(t) &\FourierTs F^*(-\omega) \\
+\qq*{时移性}  && f(t + t_0) &\FourierTs \eu^{\im \omega t_0} F(\omega) \\
+\qq*{频移性}  && \eu^{\im \omega_0 t} f(t) &\FourierTs F(\omega - \omega_0) \\
+\qq*{缩放性}  && f(t/\lambda) &\FourierTs \abs{\lambda} F(\lambda \omega) \\
+\qq*{时域卷积}&& f(t) * g(t) &\FourierTs F(\omega) G(\omega) \\
+\qq*{频域卷积}&& f(t) g(t) &\FourierTs F(\omega) * G(\omega) \\
+\qq*{时域微分}&& \odv[n]{f}{t} &\FourierTs (\im \omega)^n F(\omega) \\
+\qq*{频域微分}&& (-\im t)^n f(t) &\FourierTs \odv[n]{F}{\omega} \\
+\qq*{时域积分}&& \int_{-\infty}^{t} f(\tau) \d \tau &\FourierTs -\frac{\im}{\omega} F(\omega) + \pi F(0) \delta(\omega) \\
+\qq*{频域积分}&& \frac{\im}{t} f(t) + \pi f(0) \delta(t) &\FourierTs \int_{-\infty}^{\omega} F(\Omega) \d \Omega
+\end{alignat}\end{subequations}
+
+\subsection{帕斯瓦尔定理}
+\begin{equation}
+\int_{-\infty}^{+\infty} \abs{f(t)}^2 \d t = \frac{1}{2\pi} \int_{-\infty}^{+\infty} \abs{F(\omega)}^2 \d \omega
+\end{equation}
+
+\section{拉普拉斯（Laplace）变换}
+
+拉普拉斯变换及其逆变换定义为：
+\begin{equation}
+- \frac{\im}{2\pi}\int_{c-\im\infty}^{c+\im\infty} F(p) \eu^{- p t} \d p
+= f(t) \LaplaceTs F(p) =
+\int_0^{+\infty} f(t) \eu^{- p t} \d t
+\end{equation}
+接下来，我们将使用对应的大写字母表示拉普拉斯变换的结果。
+
+\subsection{拉普拉斯变换的性质}
+\begin{subequations}\begin{alignat}{2}
+\qq*{线性性}  && a f(t) + b g(t) &\LaplaceTs a F(p) + b G(p) \\
+\qq*{对称性}  && F(p) &\LaplaceTs 2\pi f(-t) \\
+\qq*{奇偶性}  && f(-t) &\LaplaceTs F(-p) \\
+\qq*{虚实性}  && f^*(t) &\LaplaceTs F^*(p^*) \\
+\qq*{时移性}  && f(t + t_0) &\LaplaceTs \eu^{p t_0} F(p) \\
+\qq*{频移性}  && \eu^{p_0 t} f(t) &\LaplaceTs F(p - p_0) \\
+\qq*{缩放性}  && f(t/\lambda) &\LaplaceTs \abs{\lambda} F(\lambda p) \\
+\qq*{时域卷积}&& f(t) * g(t) &\LaplaceTs F(p) G(p) \\
+\qq*{频域卷积}&& f(t) g(t) &\LaplaceTs F(p) * G(p) \\
+\qq*{时域微分}&& \odv[n]{f}{t} &\LaplaceTs p^n F(p) + \sum_{i=0}^{n-1} \ab(-p)^{i+1} \odv[i]{f}{t}(0) \\
+\qq*{频域微分}&& (-t)^n f(t) &\LaplaceTs \odv[n]{F}{p} \\
+\qq*{时域积分}&& \int_{-\infty}^{t} f(\tau) \d \tau &\LaplaceTs \frac{1}{p} F(p) \\ % + \pi F(0) \delta(p)
+\qq*{频域积分}&& -\frac{1}{t} f(t) &\LaplaceTs \int_{-\infty}^{p} F(p) \d p % + \pi f(0) \delta(t)
+\end{alignat}\end{subequations}
